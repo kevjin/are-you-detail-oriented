@@ -27,7 +27,7 @@ export default function Component() {
         <span className="font-semibold">
           56 other
           <br />
-          founders, builders, PMs, qa testers
+          founders, builders, PMs, QA testers
         </span>
       </div>
       <Link to="/play/landing">

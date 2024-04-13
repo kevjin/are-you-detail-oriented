@@ -2,7 +2,7 @@
 
 ## Background
 
-One of the most important skills, especially for early stage companies, for founders, builders, product managers, qa testers - everyone basically, is to be detail-oriented in the work that they do.
+One of the most important skills, especially for early stage companies, for founders, builders, product managers, QA testers - everyone basically, is to be detail-oriented in the work that they do.
 
 This is a fun quick game, to see how detail-oriented are _you_.
 
