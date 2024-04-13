@@ -90,7 +90,7 @@ export default function Component() {
           <div className="font-bold">Task Wizard</div>
           <div className="font-light">Copyright @ 2023</div>
         </div>
-        <div className="text-right">
+        <div className="text-right font-light">
           <div className="underline">Terms of Service</div>
           <div className="underline">Privacy Policy</div>
         </div>
