@@ -4,7 +4,7 @@
 
 One of the most important skills, especially for early stage companies, for founders, builders, product managers, qa testers - everyone basically, is to be detail-oriented in the work that they do.
 
-This is a fun little quiz, to see how detail-oriented are YOU.
+This is a fun little quiz, to see how detail-oriented are **you**.
 
 We're building this over the weekend of April 13th-April 14th, come see our Linkedin posts documenting the 2-day journey:
 
