@@ -19,3 +19,12 @@ export function TodoWizardNavbarLoggedOut() {
     </div>
   );
 }
+
+export function TodoWizardNavbarLoggedIn() {
+  return (
+    <div className="py-2 flex flex-row pl-4 pr-2 items-center justify-between border-b-2 border-black">
+      <div className="font-semibold uppercase text-lg">Todo Wizard</div>
+      <div className="text-sm">Welcome back John</div>
+    </div>
+  );
+}
