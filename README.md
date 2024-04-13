@@ -1,36 +1,25 @@
-# Welcome to Remix + Vite!
+<img src="landing-strip-pretty.png" alt="Are You Detail Oriented?" width="100%"/>
 
-📖 See the [Remix docs](https://remix.run/docs) and the [Remix Vite docs](https://remix.run/docs/en/main/future/vite) for details on supported features.
+## Background
 
-## Development
+One of the most important skills, especially for early stage companies, for founders, builders, product managers, qa testers - everyone basically, is to be detail-oriented in the work that they do.
 
-Run the Vite dev server:
+This is a fun little quiz, to see how detail-oriented are YOU.
 
-```shellscript
-npm run dev
-```
+We're building this over the weekend of April 13th-April 14th, come see our Linkedin posts documenting the 2-day journey:
 
-## Deployment
+- Day 0: https://www.linkedin.com/posts/itskevinjin_i-havent-coded-anything-for-fun-recently-activity-7184649459643904001-ITxu
+
+## To get this app up and running
 
 First, build your app for production:
 
 ```sh
-npm run build
+pnpm install
 ```
 
-Then run the app in production mode:
+Then run the app in dev mode:
 
 ```sh
-npm start
+pnpm dev
 ```
-
-Now you'll need to pick a host to deploy it to.
-
-### DIY
-
-If you're familiar with deploying Node applications, the built-in Remix app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-- `build/server`
-- `build/client`
