@@ -1,23 +1,10 @@
 import { Link } from "@remix-run/react";
+import { TodoWizardNavbarLoggedOut } from "~/components/todo-wizard-navbar";
 
 export function Component() {
   return (
     <div className="w-full flex flex-col items-center justify-start">
-      <div className="py-2 flex flex-row pl-4 pr-2 items-center justify-between border-b-2 border-black">
-        <div className="font-semibold uppercase text-lg">Todo Wizard</div>
-        <div className="flex flex-row items-center gap-3">
-          <Link to="/play/login">
-            <button className="border-2 border-black rounded-sm font-medium py-3 px-4">
-              Log In
-            </button>
-          </Link>
-          <Link to="/play/signup">
-            <button className="bg-black rounded-sm font-medium text-white py-3 px-4">
-              Sign Up
-            </button>
-          </Link>
-        </div>
-      </div>
+      <TodoWizardNavbarLoggedOut />
 
       <div className="text-xl text-center mt-7">
         Track your personel tasks and goals with Todo Wizard
