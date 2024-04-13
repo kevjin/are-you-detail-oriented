@@ -10,6 +10,10 @@ export default {
         "2xl": "1400px",
       },
     },
+    fontFamily: {
+      gochihand: ["Gochi Hand", "serif"],
+      bangers: ["Bangers", "serif"],
+    },
     extend: {
       keyframes: {
         "accordion-down": {
