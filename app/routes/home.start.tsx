@@ -30,7 +30,7 @@ export default function Component() {
           founders, builders, PMs, qa testers
         </span>
       </div>
-      <Link to="play/landing">
+      <Link to="/play/landing">
         <PrettyButton className="mt-3">
           I'm ready!{" "}
           <img className="ml-2 w-5 h-5 inline" src="/icons/eye.svg" />

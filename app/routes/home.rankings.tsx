@@ -17,46 +17,46 @@ const MOCK_RANKINGS: Ranking[] = [
 
 export default function Component() {
   return (
-    <div className="w-full h-full flex flex-col items-start justify-center">
-      <div className="mt-3 text-3xl font-semibold">
-        {/* TODO add special font */}
-        Are you <span className="text-[#F54F01]">detail oriented?</span>
+    <div className="w-full h-full flex flex-col items-center justify-start">
+      <div className="mt-12 text-3xl font-semibold text-center">
+        Are you{" "}
+        <span className="text-[#F54F01]">
+          <span className="font-gochihand font-normal">detail</span> oriented?
+        </span>
       </div>
 
-      <div className="flex flex-row w-full justify-between items-center">
-        <div className="text-lg font-semibold">
+      <div className="mt-5 px-5 flex flex-row w-full justify-between items-end">
+        <div className="text-base font-semibold">
           Global Rankings
           <img
             src="/icons/rankings.svg"
-            className="ml-1 h-[1.75rem] inline-block"
+            className="ml-1 mb-1 h-5 inline-block"
           />
         </div>
 
-        <div className="font-light text-sm">
-          <b>56</b> detail-
+        <div className="font-light text-xs text-right">
+          <span className="font-semibold">56</span> detail-
           <br />
           oriented people
         </div>
       </div>
-      <div className="my-3 border-b w-full border-[#C19117]" />
+      <div className="my-2 px-5 border-b w-[calc(100%-1.5rem)] border-[#C19117]" />
       {MOCK_RANKINGS.map((ranking) => (
         <div
           key={ranking.rank}
-          className="my-3 flex flex-row w-full justify-start items-center"
+          className="px-7 my-2 flex flex-row w-full justify-start items-center"
         >
-          <div className="text-sm font-medium w-[3rem]">{ranking.rank}</div>
-          <div className="ml-3 text-base font-light w-[calc(100%-8rem)]">
+          <div className="text-sm font-medium w-[0.75rem] text-right">
+            {ranking.rank}
+          </div>
+          <div className="ml-3 text-sm font-normal text-start w-[calc(100%-6rem)]">
             {ranking.username}
           </div>
-          <div className="text-lg font-semibold w-[5rem]">{ranking.score}</div>
+          <div className="text-sm font-semibold w-[5rem] text-right">
+            {ranking.score}
+          </div>
         </div>
       ))}
-
-      <Link to="play/landing">
-        <Button className="bordere border-[#AA6D12] rounded-md px-10 py-3 text-lg font-semibold">
-          Try again? 🥴
-        </Button>
-      </Link>
     </div>
   );
 }

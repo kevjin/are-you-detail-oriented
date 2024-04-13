@@ -11,7 +11,7 @@ export default function Component() {
           found yet!
         </div>
       </div>
-      <div className="h-[calc(100%-10rem)] bg-white w-full">
+      <div className="h-[calc(100%-10rem)] bg-white w-full overflow-y-auto">
         <Outlet />
       </div>
       <div className="bg-[#FFBF43] h-[5rem] w-full px-3 py-2 flex flex-row justify-center">
@@ -21,18 +21,20 @@ export default function Component() {
             Time Left
           </div>
         </div>
-      </div>
-      <Link to="/play/results">
-        <Button className="h-full w-1/4 max-w-[5rem] rounded-md flex flex-col items-center justify-center hover:bg-[rgba(255,255,255,0.2)]">
-          <img className="w-4 h-4" src={"/icons/done.svg"} />
+        <Link to="/play/results">
+          <Button className="h-full w-1/4 max-w-[5rem] rounded-md flex flex-col items-center justify-center hover:bg-[rgba(255,255,255,0.2)]">
+            <img className="w-4 h-4" src={"/icons/done.svg"} />
+            <div className="mt-2 font-medium text-sm text-[#553608]">
+              I'm done
+            </div>
+          </Button>
+        </Link>
+        <div className="h-full w-1/4 max-w-[5rem] rounded-md flex flex-col items-center justify-center hover:bg-[rgba(255,255,255,0.2)]">
+          <div className="text-lg font-semibold">{0}</div>
           <div className="mt-2 font-medium text-sm text-[#553608]">
             I'm done
           </div>
-        </Button>
-      </Link>
-      <div className="h-full w-1/4 max-w-[5rem] rounded-md flex flex-col items-center justify-center hover:bg-[rgba(255,255,255,0.2)]">
-        <div className="text-lg font-semibold">{0}</div>
-        <div className="mt-2 font-medium text-sm text-[#553608]">I'm done</div>
+        </div>
       </div>
     </div>
   );
