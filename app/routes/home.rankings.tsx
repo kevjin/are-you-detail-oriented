@@ -1,4 +1,5 @@
 import { Link } from "@remix-run/react";
+import { Button } from "~/components/ui/button";
 
 type Ranking = {
   rank: number;
@@ -52,9 +53,9 @@ export default function Component() {
       ))}
 
       <Link to="play/landing">
-        <button className="bordere border-[#AA6D12] rounded-md px-10 py-3 text-lg font-semibold">
+        <Button className="bordere border-[#AA6D12] rounded-md px-10 py-3 text-lg font-semibold">
           Try again? 🥴
-        </button>
+        </Button>
       </Link>
     </div>
   );

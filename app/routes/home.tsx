@@ -1,5 +1,6 @@
 import { Link, Outlet } from "@remix-run/react";
 import { ConditionalLink } from "~/components/conditional-link";
+import { Button } from "~/components/ui/button";
 import { cn } from "~/lib/utils";
 
 export default function Component() {
@@ -34,7 +35,7 @@ function NavButton({
 }) {
   return (
     <ConditionalLink condition={!!to} to={to}>
-      <button
+      <Button
         className={cn(
           "h-full w-1/4 max-w-[5rem] rounded-md flex flex-col items-center justify-center",
           !!to && "hover:bg-[rgba(255,255,255,0.2)]"
@@ -42,7 +43,7 @@ function NavButton({
       >
         <img className="w-4 h-4" src={icon} />
         <div className="mt-2 font-medium text-sm bg-[#553608]">{text}</div>
-      </button>
+      </Button>
     </ConditionalLink>
   );
 }

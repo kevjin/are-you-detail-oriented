@@ -1,4 +1,5 @@
 import { Link } from "@remix-run/react";
+import { Button } from "./ui/button";
 
 export function TodoWizardNavbarLoggedOut() {
   return (
@@ -6,14 +7,14 @@ export function TodoWizardNavbarLoggedOut() {
       <div className="font-semibold uppercase text-lg">Todo Wizard</div>
       <div className="flex flex-row items-center gap-3">
         <Link to="/play/login">
-          <button className="border-2 border-black rounded-sm font-medium py-3 px-4">
+          <Button className="border-2 border-black rounded-sm font-medium py-3 px-4">
             Log In
-          </button>
+          </Button>
         </Link>
         <Link to="/play/signup">
-          <button className="bg-black rounded-sm font-medium text-white py-3 px-4">
+          <Button className="bg-black rounded-sm font-medium text-white py-3 px-4">
             Sign Up
-          </button>
+          </Button>
         </Link>
       </div>
     </div>

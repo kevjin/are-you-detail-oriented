@@ -1,4 +1,5 @@
 import { TodoWizardNavbarLoggedIn } from "~/components/todo-wizard-navbar";
+import { Button } from "~/components/ui/button";
 
 export default function Component() {
   return (
@@ -19,9 +20,9 @@ export default function Component() {
         <div className="w-full border rounded-sm border-black pl-3 py-3 mt-3">
           Buy groceries this weekend
         </div>
-        <button className="bg-black rounded-full font-medium text-white py-3 px-4 mt-5">
+        <Button className="bg-black rounded-full font-medium text-white py-3 px-4 mt-5">
           Create
-        </button>
+        </Button>
       </div>
 
       <div className="mt-32 px-5 w-full">

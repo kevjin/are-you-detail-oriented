@@ -1,5 +1,6 @@
 import { Link } from "@remix-run/react";
 import { TodoWizardNavbarLoggedOut } from "~/components/todo-wizard-navbar";
+import { Button } from "~/components/ui/button";
 
 export function Component() {
   return (
@@ -10,9 +11,9 @@ export function Component() {
         Track your personel tasks and goals with Todo Wizard
       </div>
 
-      <button className="bg-black rounded-sm font-medium text-white py-3 px-4 max-w-[7rem] overflow-hidden">
+      <Button className="bg-black rounded-sm font-medium text-white py-3 px-4 max-w-[7rem] overflow-hidden">
         Get Started for Free
-      </button>
+      </Button>
 
       <div>
         <div className="w-[10rem] border rounded-sm border-black pl-3">
@@ -40,7 +41,7 @@ export function Component() {
         <div>Use our unique GPT-wrapper features to generate goals for you</div>
         <div className="flex flex-row w-[10rem]">
           give me some exercise goals
-          <button>Inspire</button>
+          <Button>Inspire</Button>
         </div>
 
         <div className="w-[10rem] border rounded-sm border-black pl-3">
@@ -81,9 +82,9 @@ export function Component() {
           managing your projects easier
         </div>
 
-        <button className="border border-black rounded-sm font-medium py-3 px-6 mt-5 text-lg">
+        <Button className="border border-black rounded-sm font-medium py-3 px-6 mt-5 text-lg">
           Get Started
-        </button>
+        </Button>
       </div>
 
       <div className="mt-32 mb-7 flex flex-row justify-between w-full">

@@ -1,5 +1,7 @@
 import { Link } from "@remix-run/react";
 import { TodoWizardNavbarLoggedOut } from "~/components/todo-wizard-navbar";
+import { Button } from "~/components/ui/button";
+import { Input } from "~/components/ui/input";
 
 export default function Component() {
   return (
@@ -9,13 +11,13 @@ export default function Component() {
       <div className="bg-white w-full max-w-[20rem] rounded-lg border-2 border-black flex flex-col items-center justify-center pt-10 pb-7 px-10">
         <div className="font-medium text-lg">Login to TODO Wizard</div>
         <div className="mt-7 text-sm">Username</div>
-        <input />
+        <Input />
         <div className="mt-3 text-sm">Password</div>
-        <input />
+        <Input />
 
-        <button className="border-black rounded-full font-medium w-full py-3 text-lg text-center">
+        <Button className="border-black rounded-full font-medium w-full py-3 text-lg text-center">
           Sign Up
-        </button>
+        </Button>
         <div className="text-sm text-[#959595]">This is not a real login</div>
 
         <div className="mt-16 text-sm text-[#a6a6a6]">

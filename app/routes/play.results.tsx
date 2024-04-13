@@ -1,4 +1,5 @@
 import { Link } from "@remix-run/react";
+import { Button } from "~/components/ui/button";
 
 export default function Component() {
   return (
@@ -37,15 +38,15 @@ export default function Component() {
 
       <div className="flex flex-row justify-between w-full">
         <div>BlueDino3</div>
-        <button className="bg-[#F7EDCA] border border-[#AA6D12] rounded-md">
+        <Button className="bg-[#F7EDCA] border border-[#AA6D12] rounded-md">
           Share...
-        </button>
+        </Button>
       </div>
 
       <Link to="play/landing">
-        <button className="bordere border-[#AA6D12] rounded-md px-10 py-3 text-lg font-semibold">
+        <Button className="bordere border-[#AA6D12] rounded-md px-10 py-3 text-lg font-semibold">
           Try again? 🥴
-        </button>
+        </Button>
       </Link>
     </div>
   );

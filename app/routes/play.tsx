@@ -1,4 +1,5 @@
 import { Link, Outlet } from "@remix-run/react";
+import { Button } from "~/components/ui/button";
 
 export default function Component() {
   return (
@@ -22,12 +23,12 @@ export default function Component() {
         </div>
       </div>
       <Link to="/play/results">
-        <button className="h-full w-1/4 max-w-[5rem] rounded-md flex flex-col items-center justify-center hover:bg-[rgba(255,255,255,0.2)]">
+        <Button className="h-full w-1/4 max-w-[5rem] rounded-md flex flex-col items-center justify-center hover:bg-[rgba(255,255,255,0.2)]">
           <img className="w-4 h-4" src={"/icons/done.svg"} />
           <div className="mt-2 font-medium text-sm text-[#553608]">
             I'm done
           </div>
-        </button>
+        </Button>
       </Link>
       <div className="h-full w-1/4 max-w-[5rem] rounded-md flex flex-col items-center justify-center hover:bg-[rgba(255,255,255,0.2)]">
         <div className="text-lg font-semibold">{0}</div>
