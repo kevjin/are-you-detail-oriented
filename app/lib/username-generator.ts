@@ -30,7 +30,7 @@ export function generateUsername() {
   const animal = ANIMALS[Math.floor(Math.random() * ANIMALS.length)];
   return [color, animal, generateRandomAlphanumericString(4)]
     .map(capitalizeFirstLetter)
-    .join("-");
+    .join("");
 }
 
 function capitalizeFirstLetter(str: string) {

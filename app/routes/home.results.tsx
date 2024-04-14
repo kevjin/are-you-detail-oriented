@@ -135,7 +135,10 @@ export default function Component() {
       </div>
 
       <div className="mt-5 flex flex-row justify-between items-center w-full px-10">
-        <div className="font-bold">{data.lastSession.name}</div>
+        <div className="font-bold text-sm">
+          {data.lastSession.name}{" "}
+          {/* <img src="/icons/edit.svg" className="inline-block h-4 w-4" /> */}
+        </div>
         <PrettyButton
           disabled={!data.isMine}
           buttonClassName="w-36 h-11 text-base font-semibold justify-start bg-[#F7EDCA]"

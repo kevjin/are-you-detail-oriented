@@ -8,7 +8,7 @@ export function MagnifyingGlassBackground({
   return (
     <img
       src="/icons/magnifying-glass.svg"
-      className={cn("absolute", className)}
+      className={cn("absolute opacity-30", className)}
     />
   );
 }

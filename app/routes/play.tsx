@@ -71,6 +71,7 @@ export default function Component() {
 
   useEffect(() => {
     if (!countdownTimerRef.current || navigation.state !== "idle") return;
+
     const oneMinuteInFuture = Date.now() + GAME_SECONDS * 1000;
 
     if (!window.location.hostname.includes("localhost")) {
@@ -103,7 +104,7 @@ export default function Component() {
       }
     }, 85);
     return () => clearInterval(interval);
-  }, [!!countdownTimerRef.current, navigation.state]);
+  }, [!!countdownTimerRef.current]);
 
   useEffect(() => {
     if (timesUp) {
