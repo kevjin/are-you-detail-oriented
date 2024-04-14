@@ -29,11 +29,14 @@ export default function Component() {
           </div>
         </div>
 
-        <img src="/images/bug-example.png" className="pl-3 w-1/4 h-auto" />
+        <img
+          src="/images/bug-example.png"
+          className="pl-3 md:pl-10 w-1/4 max-w-[10rem] h-auto"
+        />
       </div>
 
-      <div className="mt-12 text-sm flex flex-row w-full">
-        <div className="pt-1 pl-4 pr-5 w-1/4">
+      <div className="mt-12 text-sm flex flex-row w-full items-center justify-end">
+        <div className="pt-1 pl-4 pr-5 md:pr-10 w-1/4 max-w-[10rem]">
           <img src="/images/points-earned.png" className="h-auto" />
         </div>
 

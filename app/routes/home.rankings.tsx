@@ -85,6 +85,7 @@ export default function Component() {
           </div>
         </div>
       ))}
+      <div className="mb-10" />
     </div>
   );
 }
