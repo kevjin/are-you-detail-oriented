@@ -1,11 +1,5 @@
 import { ActionFunctionArgs, redirect } from "@remix-run/node";
-import {
-  Link,
-  Outlet,
-  useNavigate,
-  useNavigation,
-  useSubmit,
-} from "@remix-run/react";
+import { Outlet, useNavigation, useSubmit } from "@remix-run/react";
 import { useEffect, useRef, useState } from "react";
 import { Button } from "~/components/ui/button";
 import { lastPlaySessionCookie } from "~/cookies.server";
@@ -91,8 +85,10 @@ export default function Component() {
           bugs you can find!
         </div>
         <div className="font-light text-sm">
-          <span className="font-bold text-[#8317A9]">(0/25)</span> No bugs found
-          yet!
+          <span className="font-bold text-[#8317A9]">
+            ({Math.floor(score / 100)}/25)
+          </span>{" "}
+          No bugs found yet!
         </div>
       </div>
       <div className="h-[calc(100%-5rem)] pb-[5rem] bg-white w-full overflow-y-auto">

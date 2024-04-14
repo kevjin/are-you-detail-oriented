@@ -43,7 +43,7 @@ export default function Component() {
               found
             </div>
             <div className="text-[4rem] font-bold">
-              {Math.floor(data.lastSession.score / 10)}
+              {Math.floor(data.lastSession.score / 100)}
             </div>
           </div>
         </div>

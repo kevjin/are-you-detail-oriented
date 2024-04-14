@@ -110,7 +110,9 @@ export default function Component() {
       <div className="mt-28 mb-7 px-7 flex flex-row justify-between w-full text-sm">
         <div>
           <div className="font-bold">Task Wizard</div>
-          <div className="font-light">Copyright @ 2023</div>
+          <BugWrapper id="43iotn34g">
+            <div className="font-light">Copyright @ 2023</div>
+          </BugWrapper>
         </div>
         <BugWrapper id="igo43ngi4o32ed">
           <div className="text-right font-light">
