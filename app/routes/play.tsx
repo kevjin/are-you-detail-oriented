@@ -72,10 +72,12 @@ export default function Component() {
   useEffect(() => {
     if (!countdownTimerRef.current || navigation.state !== "idle") return;
     const oneMinuteInFuture = Date.now() + GAME_SECONDS * 1000;
-    posthog.capture("games_started", {
-      domain: window.location.hostname,
-      device: data.device,
-    });
+
+    if (!window.location.hostname.includes("localhost")) {
+      posthog.capture("games_started", {
+        device: data.device,
+      });
+    }
 
     setPlayStartTs(Date.now());
     const interval = setInterval(() => {
