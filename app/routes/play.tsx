@@ -8,7 +8,7 @@ import { useStore } from "~/lib/store";
 import { generateUsername } from "~/lib/username-generator";
 import { generateRandomAlphanumericString } from "~/lib/utils";
 
-const GAME_SECONDS = 600;
+const GAME_SECONDS = 60;
 
 export const action = async (args: ActionFunctionArgs) => {
   const body = await args.request.formData();
