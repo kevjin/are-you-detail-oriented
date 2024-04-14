@@ -7,7 +7,7 @@ export default function Component() {
   const location = useLocation();
   return (
     <div className="relative w-screen h-screen bg-[#F5F2DC] overflow-hidden">
-      <div className="w-full h-full pb-[5rem]">
+      <div className="w-full h-full pb-[5rem] overflow-hidden">
         <Outlet />
       </div>
       <div className="fixed bottom-0 bg-[#FFBF43] h-[5rem] w-full px-3 py-2 flex flex-row justify-between">
