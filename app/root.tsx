@@ -6,6 +6,23 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 import "./global.css";
+import { MetaFunction } from "@remix-run/node";
+
+export const meta: MetaFunction = () => [
+  {
+    charset: "utf-8",
+    title: "Are you Detail Oriented?",
+    viewport: "width=device-width,initial-scale=1",
+  },
+  {
+    property: "og:image",
+    content: "https://static.lite.build/social-preview.png",
+  },
+  {
+    property: "twitter:image",
+    content: "https://static.lite.build/social-preview.png",
+  },
+];
 
 // export const links: LinksFunction = () => [{ rel: "stylesheet", href: styles }];
 

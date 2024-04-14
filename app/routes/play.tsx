@@ -1,6 +1,7 @@
 import {
   ActionFunctionArgs,
   LoaderFunctionArgs,
+  json,
   redirect,
 } from "@remix-run/node";
 import {
@@ -36,10 +37,15 @@ export const action = async (args: ActionFunctionArgs) => {
   }
 
   const score = parseInt(scoreRaw as string);
+
+  if (score > 10000) {
+    return json({ error: "Come on, man" }, { status: 400 });
+  }
+
   const newPlaySession = await prisma.playSession.create({
     data: {
       code: generateRandomAlphanumericString(14),
-      score: score,
+      score: Math.max(score, 0),
       display_name: generateUsername(),
     },
   });
