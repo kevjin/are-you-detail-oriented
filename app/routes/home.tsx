@@ -41,7 +41,7 @@ export default function Component() {
       <div className="w-full h-full pb-[5rem] overflow-hidden">
         <Outlet />
       </div>
-      <div className="fixed bottom-0 bg-[#FFBF43] h-[5rem] w-full px-3 py-2 flex flex-row justify-between">
+      <div className="fixed bottom-0 bg-[#FFBF43] h-[5rem] w-full px-3 py-2 flex flex-row justify-between md:justify-center md:gap-5">
         <NavButton
           to="/home/start"
           currentPath={location.pathname}
@@ -88,7 +88,7 @@ function NavButton({
       condition={!!to}
       to={to}
       className={cn(
-        "w-1/4 max-w-[5rem] h-full rounded-md flex flex-col items-center justify-center",
+        "w-1/4 max-w-[5rem] md:max-w-[6rem] h-full rounded-md flex flex-col items-center justify-center",
         !!to && to === currentPath && "bg-[rgba(255,255,255,0.25)]",
         !!to && "hover:bg-[rgba(255,255,255,0.25)]"
       )}
@@ -98,7 +98,9 @@ function NavButton({
       ) : (
         <div className="text-xl text-[#553608] font-bold mb-[1px]">{icon}</div>
       )}
-      <div className="font-medium text-xs text-[#553608]">{text}</div>
+      <div className="font-medium text-xs md:text-sm text-[#553608]">
+        {text}
+      </div>
     </ConditionalLink>
   );
 }

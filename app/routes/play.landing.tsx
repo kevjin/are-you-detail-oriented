@@ -11,60 +11,76 @@ export default function Component() {
     <div className="w-full flex flex-col items-center justify-start">
       <TodoWizardNavbarLoggedOut />
 
-      <div className="text-xl text-center font-medium mt-7">
-        Track your personel tasks and
-        <br />
-        goals with <span className="font-bangers text-2xl">Todo Wizard</span>
+      <div className="md:mt-20 flex flex-col w-full md:flex-row items-center md:justify-between md:max-w-[60rem]">
+        <div className="flex flex-col items-center md:items-start">
+          <div className="text-xl md:text-3xl md:font-normal text-center font-medium mt-7 md:text-start">
+            Track your personel tasks and
+            <br />
+            goals with{" "}
+            <span className="font-bangers text-2xl">Todo Wizard</span>
+          </div>
+          <BugWrapper id="219rh32" reason="Button text is cut-off">
+            <Button className="mt-3 bg-black justify-start rounded-full font-medium text-white py-2 px-4 text-sm max-w-[8rem] overflow-hidden">
+              Get Started for Free
+            </Button>
+          </BugWrapper>
+        </div>
+
+        <div className="mt-10 flex flex-col gap-1">
+          <Todo className="max-w-[15rem]" title="Go to the gym" />
+          <BugWrapper id="i4gn2io4g2" reason="Todo text is cut-off">
+            <Todo
+              className="max-w-[15rem]"
+              title="Buy groceries this weekend"
+            />
+          </BugWrapper>
+          <Todo className="max-w-[15rem]" title="Pay bills at end of month" />
+        </div>
       </div>
 
-      <BugWrapper id="219rh32" reason="Button text is cut-off">
-        <Button className="mt-3 bg-black justify-start rounded-full font-medium text-white py-2 px-4 text-sm max-w-[8rem] overflow-hidden">
-          Get Started for Free
-        </Button>
-      </BugWrapper>
-
-      <div className="mt-10 flex flex-col gap-1">
-        <Todo className="max-w-[15rem]" title="Go to the gym" />
-        <BugWrapper id="i4gn2io4g2" reason="Todo text is cut-off">
-          <Todo className="max-w-[15rem]" title="Buy groceries this weekend" />
-        </BugWrapper>
-        <Todo className="max-w-[15rem]" title="Pay bills at end of month" />
-      </div>
-
-      <div className="mt-16 text-xs text-center">
+      <div className="mt-16 md:mt-32 text-xs md:text-sm text-center">
         10s of people trust Todo Wizard to manage their todo lists
       </div>
 
-      <div className="flex flex-row items-start justify-center gap-10">
-        <img className="mt-5 h-6 w-auto" src="/images/google.png" />
-        <img className="mt-5 h-5 w-auto" src="/images/reddit.png" />
+      <div className="flex flex-row items-start justify-center gap-10 md:gap-20">
+        <img className="mt-5 h-6 md:h-9 w-auto" src="/images/google.png" />
+        <img className="mt-5 h-5 md:h-8 w-auto" src="/images/reddit.png" />
         <BugWrapper
           id="4i3hgn2oi23r"
           reason="'facebook' is not vertically aligned"
         >
-          <img className="mt-5 h-11 w-auto" src="/images/facebook.png" />
+          <img
+            className="mt-5 h-11 md:h-16 w-auto"
+            src="/images/facebook.png"
+          />
         </BugWrapper>
       </div>
 
-      <div className="mt-5 w-full bg-[#E4E4E4] pb-16 px-7 flex flex-col">
-        <BugWrapper id="2oq3pgjn32nio2n" reason="Missing top margin">
-          <div className="-mt-1 text-lg font-medium text-center">
-            Use our unique GPT-wrapper features to generate goals for you
+      <div className="mt-5 w-full bg-[#E4E4E4] pb-16 px-7 flex flex-col items-center justify-start">
+        <div className="flex flex-col items-center md:max-w-[30rem]">
+          <BugWrapper id="2oq3pgjn32nio2n" reason="Missing top margin">
+            <div className="-mt-1 text-lg md:text-xl font-medium text-center">
+              Use our unique GPT-wrapper features to generate goals for you
+            </div>
+          </BugWrapper>
+          <div className="w-full mt-6 flex flex-row justify-between items-center h-10 bg-white rounded-md border-2 border-black p-[2px]">
+            <div className="text-sm pl-2">give me some exercise goals</div>
+            <Button className="bg-[#c3c3c3] rounded-sm h-full text-xs px-3">
+              Inspire ✨
+            </Button>
           </div>
-        </BugWrapper>
-        <div className="mt-6 flex flex-row justify-between items-center h-10 bg-white rounded-md border-2 border-black p-[2px]">
-          <div className="text-sm pl-2">give me some exercise goals</div>
-          <Button className="bg-[#c3c3c3] rounded-sm h-full text-xs px-3">
-            Inspire ✨
-          </Button>
-        </div>
 
-        <Todo title="Go on a walk" className="mt-5 py-2" />
-        <Todo title="Go hiking" className="py-2 mt-1" />
-        <Todo title="Go to the gym" className="py-2 mt-1" />
-        <BugWrapper id="i4tn234r2oi3r" reason="This is a duplicate todo">
+          <Todo title="Go on a walk" className="mt-5 py-2" />
+          <Todo title="Go hiking" className="py-2 mt-1" />
           <Todo title="Go to the gym" className="py-2 mt-1" />
-        </BugWrapper>
+          <BugWrapper
+            id="i4tn234r2oi3r"
+            reason="This is a duplicate todo"
+            className="w-full"
+          >
+            <Todo title="Go to the gym" className="py-2 mt-1" />
+          </BugWrapper>
+        </div>
       </div>
 
       <div className="mt-24 w-full px-7">
@@ -97,7 +113,7 @@ export default function Component() {
         <div className="uppercase font-bangers text-2xl">
           Simplify your life.
         </div>
-        <div className="mt-5 text-center text-sm font-normal">
+        <div className="mt-5 text-center text-sm md:text-lg font-normal md:max-w-[32rem]">
           Never worry again about forgetting a task or goal. Task Wizard is
           incredibly easy to use and has AI generation to make
           <BugWrapper
@@ -111,7 +127,7 @@ export default function Component() {
         </div>
 
         <Link to="/play/signup">
-          <Button className="bg-white border-2 border-black rounded-md font-medium py-2 px-8 mt-5 text-sm">
+          <Button className="bg-white border-2 border-black rounded-md font-medium py-2 px-8 md:px-12 mt-5 text-sm">
             Get Started
           </Button>
         </Link>

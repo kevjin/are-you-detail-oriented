@@ -95,46 +95,50 @@ export default function Component() {
           <span className="font-gochihand font-normal">detail</span> oriented?
         </span>
       </div>
-      <div className="mt-5 flex flex-row w-full items-center justify-center gap-6">
+      <div className="mt-5 md:mt-14 flex flex-row w-full items-center justify-center gap-6">
         <div className="relative">
-          <div className="absolute top-2 left-2 h-[9rem] w-[9rem] rounded-lg bg-[#5E4425]" />
-          <div className="bg-white h-[9rem] w-[9rem] rounded-lg flex items-center justify-center relative">
+          <div className="absolute top-2 left-2 h-[9rem] w-[9rem] md:h-[12rem] md:w-[12rem] rounded-lg bg-[#5E4425]" />
+          <div className="bg-white h-[9rem] w-[9rem] md:h-[12rem] md:w-[12rem] rounded-lg flex items-center justify-center relative">
             <div className="absolute top-2 left-3 text-xs font-semibold">
               <img src="/icons/bug.svg" className="inline-block mb-1" /> Bugs
               found
             </div>
-            <div className="text-[4rem] font-bold">
+            <div className="text-[4rem] md:text-[6rem] font-bold">
               {Math.floor(data.lastSession.score / 100)}
             </div>
           </div>
         </div>
         <div className="relative">
-          <div className="absolute top-2 left-2 h-[9rem] w-[9rem] rounded-lg bg-[#5E4425]" />
-          <div className="bg-white h-[9rem] w-[9rem] rounded-lg flex items-center justify-center relative">
+          <div className="absolute top-2 left-2 h-[9rem] w-[9rem] md:h-[12rem] md:w-[12rem] rounded-lg bg-[#5E4425]" />
+          <div className="bg-white h-[9rem] w-[9rem] md:h-[12rem] md:w-[12rem] rounded-lg flex items-center justify-center relative">
             <div className="absolute top-2 mt-1 left-3 text-xs font-semibold">
               Your total score is
             </div>
-            <div className="text-5xl font-bold">{data.lastSession.score}</div>
+            <div className="text-5xl md:text-[4.5rem] font-bold">
+              {data.lastSession.score}
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="mt-8 bg-[#FFE3AD] py-4 w-full flex items-center justify-center flex-col">
-        <div className="text-sm font-light">Your leaderboard rank is</div>
-        <div className="mt-1 text-5xl font-semibold">
+      <div className="mt-8 md:mt-12 bg-[#FFE3AD] py-4 md:py-7 w-full flex items-center justify-center flex-col">
+        <div className="text-sm md:text-base font-light">
+          Your leaderboard rank is
+        </div>
+        <div className="mt-1 text-5xl md:text-[4.5rem] font-semibold">
           {data.myRanking}
           <img
             src="/icons/rankings.svg"
-            className="ml-2 mb-2 h-[2.75rem] inline-block"
+            className="ml-2 mb-2 h-[2.75rem] md:h-[4rem] inline-block"
           />
         </div>
-        <div className="text-sm font-light">
+        <div className="text-sm md:text-base font-light">
           Incredible, you're in the {data.percentile}
           {placeSuffix(data.percentile)} percentile!
         </div>
       </div>
 
-      <div className="mt-5 flex flex-row justify-between items-center w-full px-10">
+      <div className="mt-5 md:mt-10 flex flex-row justify-between md:justify-center md:gap-14 items-center w-full px-10">
         <div className="font-bold text-sm">
           {data.lastSession.name}{" "}
           {/* <img src="/icons/edit.svg" className="inline-block h-4 w-4" /> */}
@@ -165,7 +169,7 @@ export default function Component() {
         </PrettyButton>
       </div>
 
-      <div className="mt-3 w-full px-10">
+      <div className="mt-3 md:mt-7 w-full max-w-[35rem] px-10">
         <Link to="/play/landing">
           <PrettyButton
             shadowClassName="w-full bg-[#C1C1C1] border-[#76726A] h-12"

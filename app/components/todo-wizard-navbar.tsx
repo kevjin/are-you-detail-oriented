@@ -39,9 +39,11 @@ export function TodoWizardNavbarLoggedIn() {
         Welcome back John{" "}
         <img src="/icons/caret.svg" className="h-5 w-5 mb-1 inline-block" />
         {expanded && (
-          <div className="absolute right-0 top-6 bg-white w-[7rem] py-2 px-3 border-2 border-black rounded-md">
+          <div className="absolute right-0 top-6 bg-white w-[7rem] md:w-[9rem] py-2 px-3 border-2 border-black rounded-md">
             <Link to="/play/landing">
-              <div className="font-bold text-[0.65rem] uppercase">Log Out</div>
+              <div className="font-bold text-[0.65rem] md:text-sm uppercase">
+                Log Out
+              </div>
             </Link>
           </div>
         )}
