@@ -8,7 +8,7 @@ import { useStore } from "~/lib/store";
 import { generateUsername } from "~/lib/username-generator";
 import { generateRandomAlphanumericString } from "~/lib/utils";
 
-const GAME_SECONDS = 60;
+const GAME_SECONDS = 600;
 
 export const action = async (args: ActionFunctionArgs) => {
   const body = await args.request.formData();
@@ -100,7 +100,7 @@ export default function Component() {
         </div>
         <div className="font-light text-sm">
           <span className="font-bold text-[#8317A9]">
-            ({Math.floor(score / 100)}/25)
+            {Math.floor(score / 100)} found:
           </span>{" "}
           No bugs found yet!
         </div>

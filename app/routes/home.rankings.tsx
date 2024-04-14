@@ -5,16 +5,19 @@ import { PlaySessionCookie, lastPlaySessionCookie } from "~/cookies.server";
 import prisma from "~/lib/prisma";
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
-  const topPlaySessions = await prisma.playSession.findMany({
-    take: 50,
-    orderBy: {
-      score: "desc",
-    },
-    select: {
-      score: true,
-      display_name: true,
-    },
-  });
+  const [topPlaySessions, totalPlaySessions] = await Promise.all([
+    prisma.playSession.findMany({
+      take: 50,
+      orderBy: {
+        score: "desc",
+      },
+      select: {
+        score: true,
+        display_name: true,
+      },
+    }),
+    prisma.playSession.count(),
+  ]);
 
   const cookieHeader = request.headers.get("Cookie");
   const cookie: PlaySessionCookie =
@@ -32,6 +35,7 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
 
   return {
     topPlaySessions,
+    totalPlaySessions,
     myRanking,
   };
 };
@@ -40,7 +44,7 @@ export default function Component() {
   const data = useLoaderData<typeof loader>();
   const [topPlaySessions, setTopPlaySessions] = useState(data.topPlaySessions);
   return (
-    <div className="w-full h-full flex flex-col items-center justify-start">
+    <div className="w-full h-full overflow-y-auto flex flex-col items-center justify-start">
       <div className="mt-12 text-3xl font-semibold text-center">
         Are you{" "}
         <span className="text-[#F54F01]">
@@ -58,7 +62,8 @@ export default function Component() {
         </div>
 
         <div className="font-light text-xs text-right">
-          <span className="font-semibold">56</span> detail-
+          <span className="font-semibold">{data.totalPlaySessions}</span>{" "}
+          detail-
           <br />
           oriented people
         </div>

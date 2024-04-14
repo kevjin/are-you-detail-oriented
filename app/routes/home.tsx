@@ -52,7 +52,7 @@ export default function Component() {
           to="/home/rankings"
           currentPath={location.pathname}
           icon="/icons/rankings.svg"
-          text="Rankings"
+          text="Leaderboard"
         />
         {/* TODO update this to be the score */}
         <NavButton

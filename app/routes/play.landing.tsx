@@ -43,7 +43,7 @@ export default function Component() {
         </BugWrapper>
       </div>
 
-      <div className="mt-7 w-full bg-[#E4E4E4] pb-16 px-7 flex flex-col">
+      <div className="mt-5 w-full bg-[#E4E4E4] pb-16 px-7 flex flex-col">
         <BugWrapper id="2oq3pgjn32nio2n">
           <div className="-mt-1 text-lg font-medium text-center">
             Use our unique GPT-wrapper features to generate goals for you
