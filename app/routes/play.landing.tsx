@@ -1,5 +1,6 @@
 import { Link } from "@remix-run/react";
 import { useState } from "react";
+import { BugWrapper } from "~/components/bug-wrapper";
 import { Todo } from "~/components/todo";
 import { TodoWizardNavbarLoggedOut } from "~/components/todo-wizard-navbar";
 import { Button } from "~/components/ui/button";
@@ -17,9 +18,11 @@ export default function Component() {
         goals with <span className="font-bangers text-2xl">Todo Wizard</span>
       </div>
 
-      <Button className="mt-3 bg-black justify-start rounded-full font-medium text-white py-2 px-4 text-sm max-w-[8rem] overflow-hidden">
-        Get Started for Free
-      </Button>
+      <BugWrapper id="219rh32">
+        <Button className="mt-3 bg-black justify-start rounded-full font-medium text-white py-2 px-4 text-sm max-w-[8rem] overflow-hidden">
+          Get Started for Free
+        </Button>
+      </BugWrapper>
 
       <div className="mt-10 flex flex-col gap-1">
         <Todo className="max-w-[15rem]" title="Go to the gym" />

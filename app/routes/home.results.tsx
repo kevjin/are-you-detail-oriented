@@ -1,8 +1,31 @@
-import { Link } from "@remix-run/react";
+import { LoaderFunctionArgs } from "@remix-run/node";
+import { Link, useLoaderData } from "@remix-run/react";
 import { PrettyButton } from "~/components/pretty-button";
-import { Button } from "~/components/ui/button";
+import { lastPlaySessionCookie } from "~/cookies.server";
+import { useStore } from "~/lib/store";
+
+const FAKE_LAST_PLAY_SESSION = {
+  id: "U843TI3O2NROIN32G",
+  bugsFound: 14,
+  score: 1504,
+  name: "RedTurtle34",
+  createdAt: new Date().toISOString(),
+};
+
+export const loader = async ({ request }: LoaderFunctionArgs) => {
+  const cookieHeader = request.headers.get("Cookie");
+  const cookie = (await lastPlaySessionCookie.parse(cookieHeader)) || {};
+  const lastPlaySessionId = cookie.session_id as string | undefined;
+
+  if (lastPlaySessionId) {
+    // TODO fetch the last play session and return it
+  }
+
+  return { lastSession: FAKE_LAST_PLAY_SESSION };
+};
 
 export default function Component() {
+  const data = useLoaderData<typeof loader>();
   return (
     <div className="mt-10 w-full h-full flex flex-col items-center justify-start">
       <div className="text-sm font-light">Your timer has run out.</div>
@@ -20,7 +43,9 @@ export default function Component() {
               <img src="/icons/bug.svg" className="inline-block mb-1" /> Bugs
               found
             </div>
-            <div className="text-[4rem] font-bold">14</div>
+            <div className="text-[4rem] font-bold">
+              {data.lastSession.bugsFound}
+            </div>
           </div>
         </div>
         <div className="relative">
@@ -29,7 +54,7 @@ export default function Component() {
             <div className="absolute top-2 mt-1 left-3 text-xs font-semibold">
               Your total score is
             </div>
-            <div className="text-5xl font-bold">1432</div>
+            <div className="text-5xl font-bold">{data.lastSession.score}</div>
           </div>
         </div>
       </div>
@@ -49,7 +74,7 @@ export default function Component() {
       </div>
 
       <div className="mt-5 flex flex-row justify-between items-center w-full px-10">
-        <div className="font-bold">BlueDino3</div>
+        <div className="font-bold">{data.lastSession.name}</div>
         <PrettyButton
           buttonClassName="w-32 h-11 text-base font-semibold justify-start bg-[#F7EDCA]"
           shadowClassName="w-32 h-11 top-[0.25rem]"

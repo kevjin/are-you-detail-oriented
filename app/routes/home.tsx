@@ -6,6 +6,7 @@ import { cn } from "~/lib/utils";
 
 const FAKE_LAST_PLAY_SESSION = {
   id: "U843TI3O2NROIN32G",
+  bugsFound: 14,
   score: 1504,
   name: "RedTurtle34",
   createdAt: new Date().toISOString(),

@@ -1,26 +1,60 @@
-import { Link, Outlet, useNavigate, useNavigation } from "@remix-run/react";
-import { useEffect, useRef } from "react";
+import { ActionFunctionArgs, redirect } from "@remix-run/node";
+import {
+  Link,
+  Outlet,
+  useNavigate,
+  useNavigation,
+  useSubmit,
+} from "@remix-run/react";
+import { useEffect, useRef, useState } from "react";
+import { Button } from "~/components/ui/button";
+import { lastPlaySessionCookie } from "~/cookies.server";
 import { useStore } from "~/lib/store";
 
 const SECONDS = 60;
 
+export const action = async (args: ActionFunctionArgs) => {
+  const body = await args.request.formData();
+  const scoreRaw = body.get("score");
+
+  if (!scoreRaw) {
+    return {};
+  }
+
+  const score = parseInt(scoreRaw as string);
+  return redirect("/home/results", {
+    headers: {
+      "Set-Cookie": await lastPlaySessionCookie.serialize({
+        id: "23RIH23NI",
+        score: score,
+        bugsFound: 12,
+        name: "GreenNinja34",
+        createdAt: new Date().toISOString(),
+      }),
+    },
+  });
+};
+
 export default function Component() {
-  const navigate = useNavigate();
+  const submit = useSubmit();
   const navigation = useNavigation();
+  const setPlayStartTs = useStore((state) => state.setPlayStartTs);
   const countdownTimerRef = useRef<HTMLDivElement>(null);
+  const [timesUp, setTimesUp] = useState(false);
   const score = useStore((state) => state.score);
 
   useEffect(() => {
     if (!countdownTimerRef.current || navigation.state === "loading") return;
     const oneMinuteInFuture = Date.now() + SECONDS * 1000;
+    setPlayStartTs(Date.now());
     const interval = setInterval(() => {
-      const time = oneMinuteInFuture - Date.now();
+      const timeDiff = oneMinuteInFuture - Date.now();
       const minutes = Math.max(
-        Math.floor((time % (1000 * 60 * 60)) / (1000 * 60)),
+        Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60)),
         0
       );
-      const seconds = Math.max(Math.floor((time % (1000 * 60)) / 1000), 0);
-      const ms = Math.max(Math.floor((time % 1000) / 10), 0);
+      const seconds = Math.max(Math.floor((timeDiff % (1000 * 60)) / 1000), 0);
+      const ms = Math.max(Math.floor((timeDiff % 1000) / 10), 0);
 
       countdownTimerRef.current!.innerText = `${minutes}:${
         seconds > 9 ? seconds : `0${seconds}`
@@ -30,13 +64,24 @@ export default function Component() {
         countdownTimerRef.current!.style.color = "#FF0000";
       }
 
-      if (time <= 0) {
+      if (timeDiff <= 0) {
         clearInterval(interval);
-        setTimeout(() => navigate("/home/results"), 1000);
+        setTimesUp(true);
       }
     }, 85);
     return () => clearInterval(interval);
   }, [!!countdownTimerRef.current, navigation.state]);
+
+  useEffect(() => {
+    if (timesUp) {
+      submit(
+        { score },
+        {
+          method: "post",
+        }
+      );
+    }
+  }, [timesUp]);
 
   return (
     <div className="w-screen h-screen">
@@ -64,15 +109,17 @@ export default function Component() {
           </div>
           <div className="text-sm font-medium text-[#553608]">Time Left</div>
         </div>
-        <Link
-          to="/home/results"
+        <Button
+          onClick={() => {
+            setTimesUp(true);
+          }}
           className="w-1/4 max-w-[5rem] h-full rounded-md flex flex-col items-center justify-center"
         >
           <img className="w-6 h-6" src={"/icons/done.svg"} />
           <div className="mt-1 font-medium text-sm text-[#553608]">
             I'm done
           </div>
-        </Link>
+        </Button>
         <div className="h-full w-[6rem] rounded-md flex flex-col items-center justify-center">
           <div className="text-xl font-bold">{score}</div>
           <div className="font-medium text-sm text-[#553608]">Score</div>
