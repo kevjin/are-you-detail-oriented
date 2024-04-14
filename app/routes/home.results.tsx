@@ -17,7 +17,8 @@ export default function Component() {
           <div className="absolute top-2 left-2 h-[9rem] w-[9rem] rounded-lg bg-[#5E4425]" />
           <div className="bg-white h-[9rem] w-[9rem] rounded-lg flex items-center justify-center relative">
             <div className="absolute top-2 left-3 text-xs font-semibold">
-              Bugs found
+              <img src="/icons/bug.svg" className="inline-block mb-1" /> Bugs
+              found
             </div>
             <div className="text-[4rem] font-bold">14</div>
           </div>
@@ -25,7 +26,7 @@ export default function Component() {
         <div className="relative">
           <div className="absolute top-2 left-2 h-[9rem] w-[9rem] rounded-lg bg-[#5E4425]" />
           <div className="bg-white h-[9rem] w-[9rem] rounded-lg flex items-center justify-center relative">
-            <div className="absolute top-2 left-3 text-xs font-semibold">
+            <div className="absolute top-2 mt-1 left-3 text-xs font-semibold">
               Your total score is
             </div>
             <div className="text-5xl font-bold">1432</div>
@@ -58,7 +59,7 @@ export default function Component() {
       </div>
 
       <div className="mt-3 w-full px-10">
-        <Link to="play/landing">
+        <Link to="/play/landing">
           <PrettyButton
             shadowClassName="w-full bg-[#C1C1C1] border-[#76726A] h-12"
             buttonClassName="w-full border-[#76726A] text-base font-normal h-12"
