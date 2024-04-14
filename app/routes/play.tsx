@@ -19,7 +19,7 @@ import { useStore } from "~/lib/store";
 import { generateUsername } from "~/lib/username-generator";
 import { generateRandomAlphanumericString } from "~/lib/utils";
 
-const GAME_SECONDS = 600;
+const GAME_SECONDS = 60;
 
 export const loader = ({ request }: LoaderFunctionArgs) => {
   const userAgent = request.headers.get("User-Agent");
