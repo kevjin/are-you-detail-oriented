@@ -5,6 +5,7 @@ import { Button } from "~/components/ui/button";
 import { PlaySessionCookie, lastPlaySessionCookie } from "~/cookies.server";
 import prisma from "~/lib/prisma";
 import { useStore } from "~/lib/store";
+import { generateUsername } from "~/lib/username-generator";
 import { generateRandomAlphanumericString } from "~/lib/utils";
 
 const GAME_SECONDS = 60;
@@ -22,7 +23,7 @@ export const action = async (args: ActionFunctionArgs) => {
     data: {
       code: generateRandomAlphanumericString(14),
       score: score,
-      display_name: "GreenNinja34",
+      display_name: generateUsername(),
     },
   });
 
@@ -50,7 +51,7 @@ export default function Component() {
   const score = useStore((state) => state.score);
 
   useEffect(() => {
-    if (!countdownTimerRef.current || navigation.state === "loading") return;
+    if (!countdownTimerRef.current || navigation.state !== "idle") return;
     const oneMinuteInFuture = Date.now() + GAME_SECONDS * 1000;
     setPlayStartTs(Date.now());
     const interval = setInterval(() => {

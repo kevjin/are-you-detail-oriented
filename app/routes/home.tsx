@@ -28,12 +28,12 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
 };
 
 export default function Component() {
-  const clearBugs = useStore((state) => state.clearBugs);
+  const clearGame = useStore((state) => state.clearGame);
   const data = useLoaderData<typeof loader>();
   const location = useLocation();
 
   useEffect(() => {
-    clearBugs();
+    clearGame();
   }, []);
 
   return (
