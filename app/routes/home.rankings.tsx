@@ -1,21 +1,44 @@
-import { Link } from "@remix-run/react";
-import { Button } from "~/components/ui/button";
+import { LoaderFunctionArgs } from "@remix-run/node";
+import { useLoaderData } from "@remix-run/react";
+import { useState } from "react";
+import { PlaySessionCookie, lastPlaySessionCookie } from "~/cookies.server";
+import prisma from "~/lib/prisma";
 
-type Ranking = {
-  rank: number;
-  username: string;
-  score: number;
+export const loader = async ({ request }: LoaderFunctionArgs) => {
+  const topPlaySessions = await prisma.playSession.findMany({
+    take: 50,
+    orderBy: {
+      score: "desc",
+    },
+    select: {
+      score: true,
+      display_name: true,
+    },
+  });
+
+  const cookieHeader = request.headers.get("Cookie");
+  const cookie: PlaySessionCookie =
+    (await lastPlaySessionCookie.parse(cookieHeader)) || {};
+
+  const myRanking = !!cookie
+    ? (await prisma.playSession.count({
+        where: {
+          score: {
+            gt: cookie.score,
+          },
+        },
+      })) + 1
+    : null;
+
+  return {
+    topPlaySessions,
+    myRanking,
+  };
 };
 
-const MOCK_RANKINGS: Ranking[] = [
-  { rank: 1, username: "BlueDino1", score: 1234 },
-  { rank: 2, username: "RedPepper2", score: 1233 },
-  { rank: 3, username: "GreenApple3", score: 1232 },
-  { rank: 4, username: "YellowBanana4", score: 1231 },
-  { rank: 5, username: "PurpleGrape5", score: 1230 },
-];
-
 export default function Component() {
+  const data = useLoaderData<typeof loader>();
+  const [topPlaySessions, setTopPlaySessions] = useState(data.topPlaySessions);
   return (
     <div className="w-full h-full flex flex-col items-center justify-start">
       <div className="mt-12 text-3xl font-semibold text-center">
@@ -41,19 +64,19 @@ export default function Component() {
         </div>
       </div>
       <div className="my-2 px-5 border-b w-[calc(100%-1.5rem)] border-[#C19117]" />
-      {MOCK_RANKINGS.map((ranking) => (
+      {topPlaySessions.map((playSession, idx) => (
         <div
-          key={ranking.rank}
+          key={idx}
           className="px-7 my-2 flex flex-row w-full justify-start items-center"
         >
           <div className="text-sm font-medium w-[0.75rem] text-right">
-            {ranking.rank}
+            {idx + 1}
           </div>
           <div className="ml-3 text-sm font-normal text-start w-[calc(100%-6rem)]">
-            {ranking.username}
+            {playSession.display_name}
           </div>
           <div className="text-sm font-semibold w-[5rem] text-right">
-            {ranking.score}
+            {playSession.score}
           </div>
         </div>
       ))}

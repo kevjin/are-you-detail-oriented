@@ -2,28 +2,29 @@ import { LoaderFunctionArgs } from "@remix-run/node";
 import { Outlet, useLoaderData, useLocation } from "@remix-run/react";
 import { useEffect } from "react";
 import { ConditionalLink } from "~/components/conditional-link";
-import { lastPlaySessionCookie } from "~/cookies.server";
+import { PlaySessionCookie, lastPlaySessionCookie } from "~/cookies.server";
+import prisma from "~/lib/prisma";
 import { useStore } from "~/lib/store";
 import { cn } from "~/lib/utils";
 
-const FAKE_LAST_PLAY_SESSION = {
-  id: "U843TI3O2NROIN32G",
-  bugsFound: 14,
-  score: 1504,
-  name: "RedTurtle34",
-  createdAt: new Date().toISOString(),
-};
-
 export const loader = async ({ request }: LoaderFunctionArgs) => {
   const cookieHeader = request.headers.get("Cookie");
-  const cookie = (await lastPlaySessionCookie.parse(cookieHeader)) || {};
-  const lastPlaySessionId = cookie.session_id as string | undefined;
+  const cookie: PlaySessionCookie =
+    (await lastPlaySessionCookie.parse(cookieHeader)) || {};
+  const lastPlaySessionCode = cookie.code as string | undefined;
 
-  if (lastPlaySessionId) {
+  if (lastPlaySessionCode) {
     // TODO fetch the last play session and return it
+    const playSession = await prisma.playSession.findFirst({
+      where: {
+        code: lastPlaySessionCode,
+      },
+    });
+
+    return { lastSession: playSession };
   }
 
-  return { lastSession: FAKE_LAST_PLAY_SESSION };
+  return { lastSession: null };
 };
 
 export default function Component() {
@@ -57,7 +58,7 @@ export default function Component() {
         <NavButton
           to={data.lastSession ? "/home/results" : undefined}
           currentPath={location.pathname}
-          icon={data.lastSession.score ?? 0}
+          icon={data.lastSession?.score ?? 0}
           text="Latest Score"
         />
         <NavButton

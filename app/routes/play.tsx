@@ -2,10 +2,12 @@ import { ActionFunctionArgs, redirect } from "@remix-run/node";
 import { Outlet, useNavigation, useSubmit } from "@remix-run/react";
 import { useEffect, useRef, useState } from "react";
 import { Button } from "~/components/ui/button";
-import { lastPlaySessionCookie } from "~/cookies.server";
+import { PlaySessionCookie, lastPlaySessionCookie } from "~/cookies.server";
+import prisma from "~/lib/prisma";
 import { useStore } from "~/lib/store";
+import { generateRandomAlphanumericString } from "~/lib/utils";
 
-const SECONDS = 60;
+const GAME_SECONDS = 60;
 
 export const action = async (args: ActionFunctionArgs) => {
   const body = await args.request.formData();
@@ -16,14 +18,25 @@ export const action = async (args: ActionFunctionArgs) => {
   }
 
   const score = parseInt(scoreRaw as string);
+  const newPlaySession = await prisma.playSession.create({
+    data: {
+      code: generateRandomAlphanumericString(14),
+      score: score,
+      display_name: "GreenNinja34",
+    },
+  });
+
+  const playSessionCookie: PlaySessionCookie = {
+    id: newPlaySession.id,
+    code: newPlaySession.code,
+    score: score,
+    name: newPlaySession.display_name,
+    createdAt: newPlaySession.created_at.toUTCString(),
+  };
+
   return redirect("/home/results", {
     headers: {
-      "Set-Cookie": await lastPlaySessionCookie.serialize({
-        id: "23RIH23NI",
-        score: score,
-        name: "GreenNinja34",
-        createdAt: new Date().toISOString(),
-      }),
+      "Set-Cookie": await lastPlaySessionCookie.serialize(playSessionCookie),
     },
   });
 };
@@ -38,7 +51,7 @@ export default function Component() {
 
   useEffect(() => {
     if (!countdownTimerRef.current || navigation.state === "loading") return;
-    const oneMinuteInFuture = Date.now() + SECONDS * 1000;
+    const oneMinuteInFuture = Date.now() + GAME_SECONDS * 1000;
     setPlayStartTs(Date.now());
     const interval = setInterval(() => {
       const timeDiff = oneMinuteInFuture - Date.now();

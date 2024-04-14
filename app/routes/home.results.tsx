@@ -1,26 +1,41 @@
 import { LoaderFunctionArgs } from "@remix-run/node";
 import { Link, useLoaderData } from "@remix-run/react";
 import { PrettyButton } from "~/components/pretty-button";
-import { lastPlaySessionCookie } from "~/cookies.server";
-import { useStore } from "~/lib/store";
-
-const FAKE_LAST_PLAY_SESSION = {
-  id: "U843TI3O2NROIN32G",
-  score: 1504,
-  name: "RedTurtle34",
-  createdAt: new Date().toISOString(),
-};
+import { PlaySessionCookie, lastPlaySessionCookie } from "~/cookies.server";
+import prisma from "~/lib/prisma";
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
   const cookieHeader = request.headers.get("Cookie");
-  const cookie = (await lastPlaySessionCookie.parse(cookieHeader)) || {};
-  const lastPlaySessionId = cookie.session_id as string | undefined;
+  const cookie: PlaySessionCookie =
+    (await lastPlaySessionCookie.parse(cookieHeader)) || null;
 
-  if (lastPlaySessionId) {
-    // TODO fetch the last play session and return it
+  if (!cookie) {
+    return {
+      lastSession: {
+        score: 0,
+        name: "Unknown",
+      },
+      myRanking: 0,
+      percentile: 0,
+    };
   }
 
-  return { lastSession: FAKE_LAST_PLAY_SESSION };
+  const [playersAheadOfMe, totalPlayerCount] = await Promise.all([
+    prisma.playSession.count({
+      where: {
+        score: {
+          gt: cookie.score,
+        },
+      },
+    }),
+    prisma.playSession.count(),
+  ]);
+  const myRanking = playersAheadOfMe + 1;
+  const percentile = Math.floor(
+    ((totalPlayerCount - playersAheadOfMe) / totalPlayerCount) * 100
+  );
+
+  return { lastSession: cookie, myRanking, percentile };
 };
 
 export default function Component() {
@@ -61,14 +76,14 @@ export default function Component() {
       <div className="mt-8 bg-[#FFE3AD] py-4 w-full flex items-center justify-center flex-col">
         <div className="text-sm font-light">Your leaderboard rank is</div>
         <div className="mt-1 text-5xl font-semibold">
-          645
+          {data.myRanking}
           <img
             src="/icons/rankings.svg"
             className="ml-2 mb-2 h-[2.75rem] inline-block"
           />
         </div>
         <div className="text-sm font-light">
-          Incredible, you're in the 95th percentile!
+          Incredible, you're in the {data.percentile}th percentile!
         </div>
       </div>
 

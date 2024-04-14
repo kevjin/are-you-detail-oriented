@@ -6,3 +6,15 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model PlaySession {
+  id String @id @default(cuid())
+
+  code         String @unique
+  display_name String
+  score        Int
+
+  created_at DateTime @default(now())
+
+  @@index([score])
+}
