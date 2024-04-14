@@ -1,5 +1,15 @@
-import { ActionFunctionArgs, redirect } from "@remix-run/node";
-import { Outlet, useNavigation, useSubmit } from "@remix-run/react";
+import {
+  ActionFunctionArgs,
+  LoaderFunctionArgs,
+  redirect,
+} from "@remix-run/node";
+import {
+  Outlet,
+  useLoaderData,
+  useNavigation,
+  useSubmit,
+} from "@remix-run/react";
+import posthog from "posthog-js";
 import { useEffect, useRef, useState } from "react";
 import { Button } from "~/components/ui/button";
 import { PlaySessionCookie, lastPlaySessionCookie } from "~/cookies.server";
@@ -9,6 +19,13 @@ import { generateUsername } from "~/lib/username-generator";
 import { generateRandomAlphanumericString } from "~/lib/utils";
 
 const GAME_SECONDS = 60;
+
+export const loader = ({ request }: LoaderFunctionArgs) => {
+  const userAgent = request.headers.get("User-Agent");
+  const isMobile = !!userAgent && /Mobi/.test(userAgent);
+
+  return { device: isMobile ? "mobile" : "desktop" };
+};
 
 export const action = async (args: ActionFunctionArgs) => {
   const body = await args.request.formData();
@@ -43,6 +60,7 @@ export const action = async (args: ActionFunctionArgs) => {
 };
 
 export default function Component() {
+  const data = useLoaderData<typeof loader>();
   const submit = useSubmit();
   const navigation = useNavigation();
   const setPlayStartTs = useStore((state) => state.setPlayStartTs);
@@ -53,6 +71,11 @@ export default function Component() {
   useEffect(() => {
     if (!countdownTimerRef.current || navigation.state !== "idle") return;
     const oneMinuteInFuture = Date.now() + GAME_SECONDS * 1000;
+    posthog.capture("games_started", {
+      domain: window.location.hostname,
+      device: data.device,
+    });
+
     setPlayStartTs(Date.now());
     const interval = setInterval(() => {
       const timeDiff = oneMinuteInFuture - Date.now();
