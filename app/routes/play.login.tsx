@@ -32,7 +32,11 @@ export default function Component() {
           This is not a real login
         </div>
 
-        <BugWrapper id="23iohjer5hegn31oin" className="w-full">
+        <BugWrapper
+          id="23iohjer5hegn31oin"
+          className="w-full"
+          reason="This the login page, text doesn't make sense"
+        >
           <div className="mt-14 text-sm text-center w-full font-light text-[#8b8b8b]">
             Already have an account? <span className="underline">Login</span>
           </div>

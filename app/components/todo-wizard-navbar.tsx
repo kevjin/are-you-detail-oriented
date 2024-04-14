@@ -29,7 +29,7 @@ export function TodoWizardNavbarLoggedIn() {
   const [expanded, setExpanded] = useState(false);
   return (
     <div className="bg-white w-full py-2 flex flex-row pl-4 pr-2 items-center justify-between border-b-2 border-black">
-      <BugWrapper id="2iogn2io2ng3rqui">
+      <BugWrapper id="2iogn2io2ng3rqui" reason="Logo font is not applied">
         <div className="uppercase text-base font-bold">Todo Wizard</div>
       </BugWrapper>
       <div

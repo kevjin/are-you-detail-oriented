@@ -64,6 +64,7 @@ export default function Component() {
   const submit = useSubmit();
   const navigation = useNavigation();
   const setPlayStartTs = useStore((state) => state.setPlayStartTs);
+  const latestBugReason = useStore((state) => state.latestBugReason);
   const countdownTimerRef = useRef<HTMLDivElement>(null);
   const [timesUp, setTimesUp] = useState(false);
   const score = useStore((state) => state.score);
@@ -125,7 +126,7 @@ export default function Component() {
           <span className="font-bold text-[#8317A9]">
             {Math.floor(score / 100)} found:
           </span>{" "}
-          No bugs found yet!
+          {latestBugReason}
         </div>
       </div>
       <div className="h-[calc(100%-4.5rem)] pb-[5rem] bg-white w-full overflow-y-auto">

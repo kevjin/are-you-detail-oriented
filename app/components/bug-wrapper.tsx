@@ -4,10 +4,12 @@ import { cn } from "~/lib/utils";
 
 export function BugWrapper({
   id,
+  reason,
   children,
   className,
 }: {
   id: string;
+  reason: string;
   children: React.ReactNode;
   className?: string;
 }) {
@@ -22,7 +24,7 @@ export function BugWrapper({
     <div
       onClick={(e) => {
         if (!bugStatus?.found) {
-          foundBug(id);
+          foundBug(id, reason);
           const rect = e.currentTarget.getBoundingClientRect();
           setFoundAtXY({ x: e.clientX - rect.left, y: e.clientY - rect.top });
           setTimeout(() => setBugAnimate(true), 500);

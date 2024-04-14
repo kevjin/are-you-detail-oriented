@@ -9,7 +9,7 @@ export default function Component() {
       <TodoWizardNavbarLoggedIn />
       <div className="flex flex-row items-center justify-between w-full mt-10 px-5">
         <div className="text-xl font-bold">My Todo List</div>
-        <BugWrapper id="54iohn34iog34">
+        <BugWrapper id="54iohn34iog34" reason="The '3' is a hardcoded value">
           <div className="text-base">3 Todos</div>
         </BugWrapper>
       </div>

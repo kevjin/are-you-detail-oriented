@@ -4,7 +4,8 @@ type StoreState = {
   score: number;
   clearGame: () => void;
   bugs: Record<string, BugStatus>;
-  foundBug: (id: string) => void;
+  foundBug: (id: string, reason: string) => void;
+  latestBugReason: string;
   playStartTs: number;
   setPlayStartTs: (ts: number) => void;
 };
@@ -16,11 +17,13 @@ type BugStatus = {
 
 export const useStore = create<StoreState>((set) => ({
   score: 0,
-  clearGame: () => set({ bugs: {}, score: 0 }),
+  clearGame: () =>
+    set({ bugs: {}, score: 0, latestBugReason: "No bugs found yet!" }),
   bugs: {},
+  latestBugReason: "No bugs found yet!",
   playStartTs: Date.now(),
   setPlayStartTs: (ts: number) => set({ playStartTs: ts }),
-  foundBug: (id) =>
+  foundBug: (id, reason) =>
     set((state) => ({
       bugs: {
         ...state.bugs,
@@ -32,6 +35,7 @@ export const useStore = create<StoreState>((set) => ({
           ),
         },
       },
+      latestBugReason: reason,
       score: getScoreFromBugStatus({
         ...state.bugs,
         [id]: {

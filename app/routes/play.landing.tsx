@@ -17,7 +17,7 @@ export default function Component() {
         goals with <span className="font-bangers text-2xl">Todo Wizard</span>
       </div>
 
-      <BugWrapper id="219rh32">
+      <BugWrapper id="219rh32" reason="Button text is cut-off">
         <Button className="mt-3 bg-black justify-start rounded-full font-medium text-white py-2 px-4 text-sm max-w-[8rem] overflow-hidden">
           Get Started for Free
         </Button>
@@ -25,7 +25,7 @@ export default function Component() {
 
       <div className="mt-10 flex flex-col gap-1">
         <Todo className="max-w-[15rem]" title="Go to the gym" />
-        <BugWrapper id="i4gn2io4g2">
+        <BugWrapper id="i4gn2io4g2" reason="Todo text is cut-off">
           <Todo className="max-w-[15rem]" title="Buy groceries this weekend" />
         </BugWrapper>
         <Todo className="max-w-[15rem]" title="Pay bills at end of month" />
@@ -38,13 +38,16 @@ export default function Component() {
       <div className="flex flex-row items-start justify-center gap-10">
         <img className="mt-5 h-6 w-auto" src="/images/google.png" />
         <img className="mt-5 h-5 w-auto" src="/images/reddit.png" />
-        <BugWrapper id="4i3hgn2oi23r">
+        <BugWrapper
+          id="4i3hgn2oi23r"
+          reason="'facebook' is not vertically aligned"
+        >
           <img className="mt-5 h-11 w-auto" src="/images/facebook.png" />
         </BugWrapper>
       </div>
 
       <div className="mt-5 w-full bg-[#E4E4E4] pb-16 px-7 flex flex-col">
-        <BugWrapper id="2oq3pgjn32nio2n">
+        <BugWrapper id="2oq3pgjn32nio2n" reason="Missing top margin">
           <div className="-mt-1 text-lg font-medium text-center">
             Use our unique GPT-wrapper features to generate goals for you
           </div>
@@ -59,7 +62,7 @@ export default function Component() {
         <Todo title="Go on a walk" className="mt-5 py-2" />
         <Todo title="Go hiking" className="py-2 mt-1" />
         <Todo title="Go to the gym" className="py-2 mt-1" />
-        <BugWrapper id="i4tn234r2oi3r">
+        <BugWrapper id="i4tn234r2oi3r" reason="This is a duplicate todo">
           <Todo title="Go to the gym" className="py-2 mt-1" />
         </BugWrapper>
       </div>
@@ -76,7 +79,10 @@ export default function Component() {
           question="Can I prioritize my tasks?"
           answer="Yes, you can prioritize your tasks by dragging and dropping them in the order you want."
         />
-        <BugWrapper id="34iong34gn23i3">
+        <BugWrapper
+          id="34iong34gn23i3"
+          reason="This FAQ question is not filled out"
+        >
           <FAQQuestion
             question="Can I share my tasks with others?"
             answer="TODO this question"
@@ -94,7 +100,11 @@ export default function Component() {
         <div className="mt-5 text-center text-sm font-normal">
           Never worry again about forgetting a task or goal. Task Wizard is
           incredibly easy to use and has AI generation to make
-          <BugWrapper className="inline-block" id="ign223oqintqgo3i">
+          <BugWrapper
+            className="inline-block"
+            id="ign223oqintqgo3i"
+            reason="Unnecessary extra spacing"
+          >
             <span className="ml-3" />
           </BugWrapper>
           managing your projects easier
@@ -110,11 +120,14 @@ export default function Component() {
       <div className="mt-28 mb-7 px-7 flex flex-row justify-between w-full text-sm">
         <div>
           <div className="font-bold">Task Wizard</div>
-          <BugWrapper id="43iotn34g">
+          <BugWrapper
+            id="43iotn34g"
+            reason="The copyright is not the correct year"
+          >
             <div className="font-light">Copyright @ 2023</div>
           </BugWrapper>
         </div>
-        <BugWrapper id="igo43ngi4o32ed">
+        <BugWrapper id="igo43ngi4o32ed" reason="These links do not work">
           <div className="text-right font-light">
             <div className="underline">Terms of Service</div>
             <div className="underline">Privacy Policy</div>

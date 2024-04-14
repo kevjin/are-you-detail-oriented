@@ -19,7 +19,11 @@ export default function Component() {
         <div className="mt-3 text-xs mb-[2px] font-bold">Username</div>
         <Input className="border-2 border-black" value="johndoe@gmail.com" />
         <div className="mt-3 text-xs mb-[2px] font-bold">Password</div>
-        <BugWrapper id="32bg3oirn3qfoi3" className="w-full">
+        <BugWrapper
+          id="32bg3oirn3qfoi3"
+          className="w-full"
+          reason="Password input should be hidden"
+        >
           <Input className="border-2 border-black" value="hunter2" />
         </BugWrapper>
 

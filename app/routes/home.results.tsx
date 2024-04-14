@@ -83,7 +83,8 @@ export default function Component() {
           />
         </div>
         <div className="text-sm font-light">
-          Incredible, you're in the {data.percentile}th percentile!
+          Incredible, you're in the {data.percentile}
+          {placeSuffix(data.percentile)} percentile!
         </div>
       </div>
 
@@ -109,4 +110,12 @@ export default function Component() {
       </div>
     </div>
   );
+}
+
+function placeSuffix(n: number) {
+  const lastDigit = n % 10;
+  if (lastDigit === 1) return "st";
+  if (lastDigit === 2) return "nd";
+  if (lastDigit === 3) return "rd";
+  return "th";
 }
