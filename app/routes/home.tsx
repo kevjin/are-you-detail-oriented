@@ -1,9 +1,31 @@
-import { Outlet, useLocation } from "@remix-run/react";
+import { LoaderFunctionArgs } from "@remix-run/node";
+import { Outlet, useLoaderData, useLocation } from "@remix-run/react";
 import { ConditionalLink } from "~/components/conditional-link";
-import { Button } from "~/components/ui/button";
+import { lastPlaySessionCookie } from "~/cookies.server";
 import { cn } from "~/lib/utils";
 
+const FAKE_LAST_PLAY_SESSION = {
+  id: "U843TI3O2NROIN32G",
+  score: 1504,
+  name: "RedTurtle34",
+  createdAt: new Date().toISOString(),
+};
+
+export const loader = async ({ request }: LoaderFunctionArgs) => {
+  const cookieHeader = request.headers.get("Cookie");
+  const cookie = (await lastPlaySessionCookie.parse(cookieHeader)) || {};
+  const lastPlaySessionId = cookie.session_id as string | undefined;
+
+  if (lastPlaySessionId) {
+    // TODO fetch the last play session and return it
+  }
+
+  return { lastSession: FAKE_LAST_PLAY_SESSION };
+};
+
 export default function Component() {
+  const data = useLoaderData<typeof loader>();
+
   const location = useLocation();
   return (
     <div className="relative w-screen h-screen bg-[#F5F2DC] overflow-hidden">
@@ -24,7 +46,12 @@ export default function Component() {
           text="Rankings"
         />
         {/* TODO update this to be the score */}
-        <NavButton icon="/icons/flag.svg" text="Latest Score" />
+        <NavButton
+          to={data.lastSession ? "/home/results" : undefined}
+          currentPath={location.pathname}
+          icon={data.lastSession.score ?? 0}
+          text="Latest Score"
+        />
         <NavButton
           to="/home/about"
           currentPath={location.pathname}
@@ -44,7 +71,7 @@ function NavButton({
 }: {
   to?: string;
   currentPath?: string;
-  icon: string;
+  icon: string | number;
   text: string;
 }) {
   return (
@@ -57,8 +84,12 @@ function NavButton({
         !!to && "hover:bg-[rgba(255,255,255,0.25)]"
       )}
     >
-      <img className="w-6 h-6" src={icon} />
-      <div className="mt-2 font-medium text-xs text-[#553608]">{text}</div>
+      {typeof icon === "string" ? (
+        <img className="w-6 h-6 mb-1" src={icon} />
+      ) : (
+        <div className="text-xl text-[#553608] font-bold mb-[1px]">{icon}</div>
+      )}
+      <div className="font-medium text-xs text-[#553608]">{text}</div>
     </ConditionalLink>
   );
 }
