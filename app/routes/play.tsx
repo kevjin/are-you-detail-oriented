@@ -11,10 +11,10 @@ export default function Component() {
           found yet!
         </div>
       </div>
-      <div className="h-[calc(100%-10rem)] bg-white w-full overflow-y-auto">
+      <div className="h-[calc(100%-5rem)] pb-[5rem] bg-white w-full overflow-y-auto">
         <Outlet />
       </div>
-      <div className="bg-[#FFBF43] h-[5rem] w-full px-3 py-2 flex flex-row justify-between">
+      <div className="fixed bottom-0 bg-[#FFBF43] h-[5rem] w-full px-3 py-2 flex flex-row justify-between">
         <div className="w-[6rem] h-full flex flex-col items-center justify-center">
           <div className="text-xl font-bold">0:59:34</div>
           <div className="text-sm font-medium text-[#553608]">Time Left</div>
