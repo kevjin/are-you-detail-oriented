@@ -13,6 +13,7 @@ export function Todo({
     <div
       className={cn(
         "bg-white w-full py-1 whitespace-nowrap overflow-hidden border rounded-[0.25rem] border-black px-3",
+        completed && "line-through bg-[#bebebe]",
         className
       )}
     >

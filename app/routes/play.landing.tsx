@@ -1,3 +1,4 @@
+import { Link } from "@remix-run/react";
 import { useState } from "react";
 import { Todo } from "~/components/todo";
 import { TodoWizardNavbarLoggedOut } from "~/components/todo-wizard-navbar";
@@ -80,9 +81,11 @@ export default function Component() {
           <span className="ml-3"></span>managing your projects easier
         </div>
 
-        <Button className="bg-white border-2 border-black rounded-md font-medium py-2 px-8 mt-5 text-sm">
-          Get Started
-        </Button>
+        <Link to="/play/signup">
+          <Button className="bg-white border-2 border-black rounded-md font-medium py-2 px-8 mt-5 text-sm">
+            Get Started
+          </Button>
+        </Link>
       </div>
 
       <div className="mt-28 mb-7 px-7 flex flex-row justify-between w-full text-sm">

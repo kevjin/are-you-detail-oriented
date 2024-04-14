@@ -20,7 +20,7 @@ export default function Component() {
           <div className="text-sm font-medium text-[#553608]">Time Left</div>
         </div>
         <Link
-          to="/play/results"
+          to="/home/results"
           className="w-1/4 max-w-[5rem] h-full rounded-md flex flex-col items-center justify-center"
         >
           <img className="w-6 h-6" src={"/icons/done.svg"} />
