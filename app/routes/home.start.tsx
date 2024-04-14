@@ -1,11 +1,19 @@
-import { Link } from "@remix-run/react";
+import { Link, useLoaderData } from "@remix-run/react";
 import {
   BugBackground,
   MagnifyingGlassBackground,
 } from "~/components/background-patterns";
 import { PrettyButton } from "~/components/pretty-button";
+import prisma from "~/lib/prisma";
+
+export const loader = async () => {
+  const totalPlayerCount = await prisma.playSession.count();
+
+  return { totalPlayerCount };
+};
 
 export default function Component() {
+  const data = useLoaderData<typeof loader>();
   return (
     <div className="w-full h-full flex flex-col items-center justify-start">
       <MagnifyingGlassBackground className="top-[9rem] right-[-4rem]" />
@@ -25,7 +33,7 @@ export default function Component() {
       <div className="mt-56 text-sm font-light text-center">
         Compete against{" "}
         <span className="font-semibold">
-          56 other
+          {data.totalPlayerCount} other
           <br />
           founders, builders, PMs, QA testers
         </span>
