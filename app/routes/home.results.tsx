@@ -12,6 +12,7 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
   if (!cookie) {
     return {
       lastSession: {
+        id: "unknown",
         score: 0,
         name: "Unknown",
       },
@@ -91,10 +92,27 @@ export default function Component() {
       <div className="mt-5 flex flex-row justify-between items-center w-full px-10">
         <div className="font-bold">{data.lastSession.name}</div>
         <PrettyButton
-          buttonClassName="w-32 h-11 text-base font-semibold justify-start bg-[#F7EDCA]"
-          shadowClassName="w-32 h-11 top-[0.25rem]"
+          buttonClassName="w-36 h-11 text-base font-semibold justify-start bg-[#F7EDCA]"
+          shadowClassName="w-36 h-11 top-[0.25rem]"
+          onClick={() => {
+            if (!navigator.canShare) {
+              alert("Sorry! Your browser does not support social sharing.");
+              return;
+            }
+
+            navigator.share({
+              title: `I scored in the top ${data.percentile} percentile!`,
+              text: `I found ${Math.floor(
+                data.lastSession.score / 100
+              )} in-app bugs and scored ${
+                data.lastSession.score
+              } points on 'Are You Detail Oriented?'. Can you do better?`,
+              url: `${window.location.hostname}/home/results?id=${data.lastSession.id}`,
+            });
+          }}
         >
-          Share...
+          Share...{" "}
+          <img src="/icons/social-icons.png" className="ml-2 h-5 w-auto" />
         </PrettyButton>
       </div>
 
@@ -104,7 +122,7 @@ export default function Component() {
             shadowClassName="w-full bg-[#C1C1C1] border-[#76726A] h-12"
             buttonClassName="w-full border-[#76726A] text-base font-normal h-12"
           >
-            Try again? 🥴
+            Try again? <img src="/icons/eye.svg" className="ml-1 h-5 w-5" />
           </PrettyButton>
         </Link>
       </div>
