@@ -4,7 +4,6 @@ import { BugWrapper } from "~/components/bug-wrapper";
 import { Todo } from "~/components/todo";
 import { TodoWizardNavbarLoggedOut } from "~/components/todo-wizard-navbar";
 import { Button } from "~/components/ui/button";
-import { Input } from "~/components/ui/input";
 import { cn } from "~/lib/utils";
 
 export default function Component() {
@@ -26,7 +25,9 @@ export default function Component() {
 
       <div className="mt-10 flex flex-col gap-1">
         <Todo className="max-w-[15rem]" title="Go to the gym" />
-        <Todo className="max-w-[15rem]" title="Buy groceries this weekend" />
+        <BugWrapper id="i4gn2io4g2">
+          <Todo className="max-w-[15rem]" title="Buy groceries this weekend" />
+        </BugWrapper>
         <Todo className="max-w-[15rem]" title="Pay bills at end of month" />
       </div>
 
@@ -37,13 +38,17 @@ export default function Component() {
       <div className="flex flex-row items-start justify-center gap-10">
         <img className="mt-5 h-6 w-auto" src="/images/google.png" />
         <img className="mt-5 h-5 w-auto" src="/images/reddit.png" />
-        <img className="mt-5 h-11 w-auto" src="/images/facebook.png" />
+        <BugWrapper id="4i3hgn2oi23r">
+          <img className="mt-5 h-11 w-auto" src="/images/facebook.png" />
+        </BugWrapper>
       </div>
 
       <div className="mt-7 w-full bg-[#E4E4E4] pb-16 px-7 flex flex-col">
-        <div className="-mt-1 text-lg font-medium text-center">
-          Use our unique GPT-wrapper features to generate goals for you
-        </div>
+        <BugWrapper id="2oq3pgjn32nio2n">
+          <div className="-mt-1 text-lg font-medium text-center">
+            Use our unique GPT-wrapper features to generate goals for you
+          </div>
+        </BugWrapper>
         <div className="mt-6 flex flex-row justify-between items-center h-10 bg-white rounded-md border-2 border-black p-[2px]">
           <div className="text-sm pl-2">give me some exercise goals</div>
           <Button className="bg-[#c3c3c3] rounded-sm h-full text-xs px-3">
@@ -54,7 +59,9 @@ export default function Component() {
         <Todo title="Go on a walk" className="mt-5 py-2" />
         <Todo title="Go hiking" className="py-2 mt-1" />
         <Todo title="Go to the gym" className="py-2 mt-1" />
-        <Todo title="Go to the gym" className="py-2 mt-1" />
+        <BugWrapper id="i4tn234r2oi3r">
+          <Todo title="Go to the gym" className="py-2 mt-1" />
+        </BugWrapper>
       </div>
 
       <div className="mt-24 w-full px-7">
@@ -69,6 +76,12 @@ export default function Component() {
           question="Can I prioritize my tasks?"
           answer="Yes, you can prioritize your tasks by dragging and dropping them in the order you want."
         />
+        <BugWrapper id="34iong34gn23i3">
+          <FAQQuestion
+            question="Can I share my tasks with others?"
+            answer="TODO this question"
+          />
+        </BugWrapper>
         <FAQQuestion
           question="How can I track my progress?"
           answer="You can track your progress by clicking on the 'Progress' tab on the left side of the screen."
@@ -81,7 +94,10 @@ export default function Component() {
         <div className="mt-5 text-center text-sm font-normal">
           Never worry again about forgetting a task or goal. Task Wizard is
           incredibly easy to use and has AI generation to make
-          <span className="ml-3"></span>managing your projects easier
+          <BugWrapper className="inline-block" id="ign223oqintqgo3i">
+            <span className="ml-3" />
+          </BugWrapper>
+          managing your projects easier
         </div>
 
         <Link to="/play/signup">
@@ -96,10 +112,12 @@ export default function Component() {
           <div className="font-bold">Task Wizard</div>
           <div className="font-light">Copyright @ 2023</div>
         </div>
-        <div className="text-right font-light">
-          <div className="underline">Terms of Service</div>
-          <div className="underline">Privacy Policy</div>
-        </div>
+        <BugWrapper id="igo43ngi4o32ed">
+          <div className="text-right font-light">
+            <div className="underline">Terms of Service</div>
+            <div className="underline">Privacy Policy</div>
+          </div>
+        </BugWrapper>
       </div>
     </div>
   );

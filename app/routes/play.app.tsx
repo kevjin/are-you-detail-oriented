@@ -1,3 +1,4 @@
+import { BugWrapper } from "~/components/bug-wrapper";
 import { Todo } from "~/components/todo";
 import { TodoWizardNavbarLoggedIn } from "~/components/todo-wizard-navbar";
 import { Button } from "~/components/ui/button";
@@ -8,7 +9,9 @@ export default function Component() {
       <TodoWizardNavbarLoggedIn />
       <div className="flex flex-row items-center justify-between w-full mt-10 px-5">
         <div className="text-xl font-bold">My Todo List</div>
-        <div className="text-base">2 Todos</div>
+        <BugWrapper id="54iohn34iog34">
+          <div className="text-base">3 Todos</div>
+        </BugWrapper>
       </div>
       <div className="px-5 text-sm font-light">
         Write down your daily todos. Check them off when they get done. Get
@@ -24,7 +27,7 @@ export default function Component() {
           className="mt-1 text-sm py-2"
         />
         <Todo
-          title="You can re-arrange todos by dragging"
+          title="You can edit todos by clicking on the edit icon"
           className="mt-1 text-sm py-2"
           completed
         />

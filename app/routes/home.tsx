@@ -1,7 +1,9 @@
 import { LoaderFunctionArgs } from "@remix-run/node";
 import { Outlet, useLoaderData, useLocation } from "@remix-run/react";
+import { useEffect } from "react";
 import { ConditionalLink } from "~/components/conditional-link";
 import { lastPlaySessionCookie } from "~/cookies.server";
+import { useStore } from "~/lib/store";
 import { cn } from "~/lib/utils";
 
 const FAKE_LAST_PLAY_SESSION = {
@@ -25,9 +27,14 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
 };
 
 export default function Component() {
+  const clearBugs = useStore((state) => state.clearBugs);
   const data = useLoaderData<typeof loader>();
-
   const location = useLocation();
+
+  useEffect(() => {
+    clearBugs();
+  }, []);
+
   return (
     <div className="relative w-screen h-screen bg-[#F5F2DC] overflow-hidden">
       <div className="w-full h-full pb-[5rem] overflow-hidden">

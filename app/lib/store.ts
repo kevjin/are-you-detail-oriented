@@ -2,6 +2,7 @@ import { create } from "zustand";
 
 type StoreState = {
   score: number;
+  clearBugs: () => void;
   bugs: Record<string, BugStatus>;
   foundBug: (id: string) => void;
   playStartTs: number;
@@ -15,6 +16,7 @@ type BugStatus = {
 
 export const useStore = create<StoreState>((set) => ({
   score: 0,
+  clearBugs: () => set({ bugs: {} }),
   bugs: {},
   playStartTs: Date.now(),
   setPlayStartTs: (ts: number) => set({ playStartTs: ts }),

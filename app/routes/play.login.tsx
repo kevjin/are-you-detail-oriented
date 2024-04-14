@@ -1,4 +1,5 @@
 import { Link } from "@remix-run/react";
+import { BugWrapper } from "~/components/bug-wrapper";
 import { TodoWizardNavbarLoggedOut } from "~/components/todo-wizard-navbar";
 import { Button } from "~/components/ui/button";
 import { Input } from "~/components/ui/input";
@@ -24,16 +25,18 @@ export default function Component() {
 
         <Link to="/play/app" className="w-full">
           <Button className="mt-5 bg-black text-white rounded-full font-semibold w-full py-3 text-sm text-center">
-            Sign Up
+            Login
           </Button>
         </Link>
         <div className="text-[#959595] text-center text-xs w-full mt-1">
           This is not a real login
         </div>
 
-        <div className="mt-14 text-sm text-center w-full font-light text-[#8b8b8b]">
-          Don't have an account yet? <span className="underline">Sign up</span>
-        </div>
+        <BugWrapper id="23iohjer5hegn31oin" className="w-full">
+          <div className="mt-14 text-sm text-center w-full font-light text-[#8b8b8b]">
+            Already have an account? <span className="underline">Login</span>
+          </div>
+        </BugWrapper>
       </div>
     </div>
   );

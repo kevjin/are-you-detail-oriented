@@ -1,4 +1,5 @@
 import { Link } from "@remix-run/react";
+import { BugWrapper } from "~/components/bug-wrapper";
 import { TodoWizardNavbarLoggedOut } from "~/components/todo-wizard-navbar";
 import { Button } from "~/components/ui/button";
 import { Input } from "~/components/ui/input";
@@ -18,7 +19,9 @@ export default function Component() {
         <div className="mt-3 text-xs mb-[2px] font-bold">Username</div>
         <Input className="border-2 border-black" value="johndoe@gmail.com" />
         <div className="mt-3 text-xs mb-[2px] font-bold">Password</div>
-        <Input className="border-2 border-black" value="hunter2" />
+        <BugWrapper id="32bg3oirn3qfoi3" className="w-full">
+          <Input className="border-2 border-black" value="hunter2" />
+        </BugWrapper>
 
         <Link to="/play/app" className="w-full">
           <Button className="mt-5 bg-black text-white rounded-full font-semibold w-full py-3 text-sm text-center">

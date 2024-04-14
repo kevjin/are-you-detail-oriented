@@ -27,7 +27,6 @@ export const action = async (args: ActionFunctionArgs) => {
       "Set-Cookie": await lastPlaySessionCookie.serialize({
         id: "23RIH23NI",
         score: score,
-        bugsFound: 12,
         name: "GreenNinja34",
         createdAt: new Date().toISOString(),
       }),

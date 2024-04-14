@@ -6,7 +6,6 @@ import { useStore } from "~/lib/store";
 
 const FAKE_LAST_PLAY_SESSION = {
   id: "U843TI3O2NROIN32G",
-  bugsFound: 14,
   score: 1504,
   name: "RedTurtle34",
   createdAt: new Date().toISOString(),
@@ -44,7 +43,7 @@ export default function Component() {
               found
             </div>
             <div className="text-[4rem] font-bold">
-              {data.lastSession.bugsFound}
+              {Math.floor(data.lastSession.score / 10)}
             </div>
           </div>
         </div>
