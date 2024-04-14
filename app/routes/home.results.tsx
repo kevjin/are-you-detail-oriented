@@ -5,6 +5,50 @@ import { PlaySessionCookie, lastPlaySessionCookie } from "~/cookies.server";
 import prisma from "~/lib/prisma";
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
+  const url = new URL(request.url);
+  const id = url.searchParams.get("id");
+
+  if (!!id) {
+    const playSession = await prisma.playSession.findFirst({
+      where: {
+        id,
+      },
+      select: {
+        id: true,
+        score: true,
+        display_name: true,
+      },
+    });
+
+    if (playSession) {
+      const [playersAheadOfMe, totalPlayerCount] = await Promise.all([
+        prisma.playSession.count({
+          where: {
+            score: {
+              gt: playSession.score,
+            },
+          },
+        }),
+        prisma.playSession.count(),
+      ]);
+      const myRanking = playersAheadOfMe + 1;
+      const percentile = Math.floor(
+        ((totalPlayerCount - playersAheadOfMe) / totalPlayerCount) * 100
+      );
+
+      return {
+        lastSession: {
+          id: playSession.id,
+          score: playSession.score,
+          name: playSession.display_name,
+        },
+        myRanking,
+        percentile,
+        isMine: false,
+      };
+    }
+  }
+
   const cookieHeader = request.headers.get("Cookie");
   const cookie: PlaySessionCookie =
     (await lastPlaySessionCookie.parse(cookieHeader)) || null;
@@ -18,6 +62,7 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
       },
       myRanking: 0,
       percentile: 0,
+      isMine: false,
     };
   }
 
@@ -36,7 +81,7 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
     ((totalPlayerCount - playersAheadOfMe) / totalPlayerCount) * 100
   );
 
-  return { lastSession: cookie, myRanking, percentile };
+  return { lastSession: cookie, myRanking, percentile, isMine: true };
 };
 
 export default function Component() {
@@ -92,6 +137,7 @@ export default function Component() {
       <div className="mt-5 flex flex-row justify-between items-center w-full px-10">
         <div className="font-bold">{data.lastSession.name}</div>
         <PrettyButton
+          disabled={!data.isMine}
           buttonClassName="w-36 h-11 text-base font-semibold justify-start bg-[#F7EDCA]"
           shadowClassName="w-36 h-11 top-[0.25rem]"
           onClick={() => {
