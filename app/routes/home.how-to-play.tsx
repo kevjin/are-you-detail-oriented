@@ -13,10 +13,10 @@ export default function Component() {
         How to Play
       </div>
       <div className="mt-3 font-normal text-base md:text-xl px-7 text-center max-w-[38rem]">
-        You are a QA tester, and your goal is to find all the bugs in the{" "}
-        <span className="font-bangers">TODO Wizard</span> app. The app was built
-        by <span className="font-light text-sm">BudgetSoftware™</span> for $100
-        and has not been tested yet.
+        <span className="font-bangers">TODO Wizard</span> is planning its big
+        launch soon, and your goal is to find all the bugs in the app. The app
+        was built by <span className="font-light text-sm">BudgetSoftware™</span>{" "}
+        for $100 and has not been tested yet.
       </div>
 
       <div className="mt-12 text-sm md:text-lg flex flex-row w-full items-center">
