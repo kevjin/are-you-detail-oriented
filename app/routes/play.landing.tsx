@@ -54,7 +54,7 @@ export default function Component() {
       </div>
 
       <div className="mt-12 md:mt-32 text-xs md:text-base text-center">
-        10s of people trust Todo Wizard to manage their todo lists
+        Tens of people trust Todo Wizard to manage their todo lists
       </div>
 
       <div className="md:mt-6 flex flex-row items-start justify-center gap-10 md:gap-28">
