@@ -74,7 +74,7 @@ export default function Component() {
           key={idx}
           className="px-7 my-2 flex flex-row w-full justify-start items-center"
         >
-          <div className="text-sm font-medium w-[0.75rem] text-right">
+          <div className="text-sm font-medium w-[1rem] text-right">
             {idx + 1}
           </div>
           <div className="ml-3 text-sm font-normal text-start w-[calc(100%-6rem)]">

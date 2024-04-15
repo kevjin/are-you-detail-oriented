@@ -121,7 +121,7 @@ export default function Component() {
         <div className="uppercase font-bangers text-2xl">
           Simplify your life.
         </div>
-        <div className="mt-5 text-center text-sm md:text-lg font-normal md:max-w-[32rem]">
+        <div className="mt-5 text-center text-sm md:text-lg font-normal md:max-w-[34rem]">
           Never worry again about forgetting a task or goal. Task Wizard is
           incredibly easy to use and has AI generation to make
           <BugWrapper
@@ -129,7 +129,7 @@ export default function Component() {
             id="ign223oqintqgo3i"
             reason="Unnecessary extra spacing"
           >
-            <span className="ml-3" />
+            <span className="ml-3 md:ml-5" />
           </BugWrapper>
           managing your projects easier
         </div>

@@ -141,7 +141,7 @@ export default function Component() {
       <div className="h-[calc(100%-4.5rem)] pb-[5rem] bg-white w-full overflow-y-auto">
         <Outlet />
       </div>
-      <div className="fixed bottom-0 bg-[#FFBF43] h-[5rem] w-full px-3 py-2 flex flex-row justify-between">
+      <div className="fixed bottom-0 bg-[#FFBF43] h-[5rem] w-full px-3 py-2 flex flex-row justify-between md:justify-center md:gap-5">
         <div className="w-[6rem] h-full flex flex-col items-center justify-center">
           <div
             ref={countdownTimerRef}

@@ -28,8 +28,8 @@ export default function Component() {
       </div>
 
       <div className="mt-14 md:mt-32 font-light text-base md:text-xl px-7 text-left max-w-[38rem]">
-        This was a fun, small weekend project of mine. Come follow on my socials
-        to see what else I’m building!
+        This was a fun, small weekend project of mine. Come follow my socials to
+        see what else I’m building!
       </div>
       <div className="mt-3 px-7 flex flex-row w-full justify-between items-center max-w-[38rem]">
         <div className="flex flex-row justify-start items-start gap-2">
