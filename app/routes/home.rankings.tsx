@@ -7,7 +7,7 @@ import prisma from "~/lib/prisma";
 export const loader = async ({ request }: LoaderFunctionArgs) => {
   const [topPlaySessions, totalPlaySessions] = await Promise.all([
     prisma.playSession.findMany({
-      take: 50,
+      take: 200,
       orderBy: {
         score: "desc",
       },
