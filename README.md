@@ -10,6 +10,7 @@ We're building this over the weekend of April 13th-April 14th, come see our Link
 
 - Day 0: https://www.linkedin.com/posts/itskevinjin_i-havent-coded-anything-for-fun-recently-activity-7184649459643904001-ITxu
 - Day 1: https://www.linkedin.com/posts/itskevinjin_day-1-of-my-weekend-fun-project-how-detail-oriented-activity-7184979606754533376-Zx6R
+- Day 2: https://www.linkedin.com/posts/itskevinjin_are-you-detail-oriented-activity-7185436893218533376-dk3i
 
 ## To get this app up and running
 
