@@ -161,7 +161,7 @@ export default function Component() {
         </Link>
       </div>
 
-      <div className="mt-28 mb-7 px-7 flex flex-row justify-between w-full text-sm">
+      <div className="mt-28 mb-[6rem] px-7 flex flex-row justify-between w-full text-sm">
         <div>
           <div className="font-bold">Task Wizard</div>
           <BugWrapper
