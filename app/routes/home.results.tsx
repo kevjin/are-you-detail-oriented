@@ -160,7 +160,7 @@ export default function Component() {
               )} in-app bugs and scored ${
                 data.lastSession.score
               } points on 'Are You Detail Oriented?'. Can you do better?`,
-              url: `${window.location.hostname}/home/results?id=${data.lastSession.id}`,
+              url: `https://${window.location.hostname}/home/results?id=${data.lastSession.id}`,
             });
           }}
         >
