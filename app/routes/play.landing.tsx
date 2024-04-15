@@ -75,7 +75,7 @@ export default function Component() {
         Hear from our <span className="text-black">Wall of Love</span>
       </div>
 
-      <div className="w-full">
+      <div className="w-full overflow-hidden">
         <div className="mt-4 md:mt-7 flex flex-row flex-nowrap w-[66rem] md:w-[72rem] animate-translate-x gap-6 md:gap-8">
           <TestimonialList />
           <TestimonialList />
