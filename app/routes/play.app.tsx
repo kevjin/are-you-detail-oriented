@@ -1,9 +1,18 @@
+import { useState } from "react";
 import { BugWrapper } from "~/components/bug-wrapper";
 import { Todo } from "~/components/todo";
 import { TodoWizardNavbarLoggedIn } from "~/components/todo-wizard-navbar";
 import { Button } from "~/components/ui/button";
+import { Input } from "~/components/ui/input";
 
 export default function Component() {
+  const [todos, setTodos] = useState([
+    { title: "Welcome, this is your todo list!", completed: false },
+    { title: "You can complete todos by clicking the check", completed: false },
+    { title: "You can add a new todo by clicking 'Create'", completed: true },
+  ]);
+  const [newTodoText, setNewTodoText] = useState("");
+
   return (
     <div className="w-full h-full bg-[#E6E6E6] flex flex-col items-center justify-start">
       <TodoWizardNavbarLoggedIn />
@@ -19,22 +28,36 @@ export default function Component() {
           disciplined.
         </div>
         <div className="mt-10 px-5 w-full">
-          <Todo
-            title="Welcome, this is your todo list!"
-            className="text-sm py-2"
-          />
-          <Todo
-            title="You can re-arrange todos by dragging"
-            className="mt-1 text-sm py-2"
-          />
-          <Todo
-            title="You can edit todos by clicking on the edit icon"
-            className="mt-1 text-sm py-2"
-            completed
-          />
-          <Button className="w-full bg-black rounded-full font-medium text-white py-3 md:py-4 px-4 mt-3 text-base">
-            Create
-          </Button>
+          {todos.map((todo, i) => (
+            <Todo
+              key={i}
+              title={todo.title}
+              completed={todo.completed}
+              editable
+              className="mt-1 md:mt-2 py-2 md:py-3 text-sm md:text-base"
+            />
+          ))}
+
+          <div className="flex flex-row w-full mt-1 md:mt-3 justify-between">
+            <Input
+              value={newTodoText}
+              onChange={(e) => setNewTodoText(e.target.value)}
+              className="w-[calc(75%-0.5rem)] bg-white border-2 border-black rounded-md py-2 h-fit md:py-3 px-4 text-sm md:text-base"
+            />
+            <Button
+              onClick={() => {
+                setTodos((prev) => [
+                  ...prev,
+                  { title: newTodoText, completed: false },
+                ]);
+                setNewTodoText("");
+              }}
+              disabled={!newTodoText}
+              className="w-1/4 bg-black rounded-md font-medium text-white py-2 md:py-3 px-4 text-sm md:text-base"
+            >
+              Create
+            </Button>
+          </div>
         </div>
         <div className="mt-14 px-5 w-full text-sm font-light leading-4">
           Our <span className="font-semibold">Inspire ✨ AI-generation</span>{" "}

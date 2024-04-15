@@ -14,7 +14,15 @@ export default function Component() {
       <div className="md:mt-20 flex flex-col w-full md:flex-row items-center md:justify-between md:max-w-[60rem]">
         <div className="flex flex-col items-center md:items-start">
           <div className="text-xl md:text-3xl md:font-normal text-center font-medium mt-7 md:text-start">
-            Track your personel tasks and
+            Track your{" "}
+            <BugWrapper
+              id="3uthg3i2onfqoifngq3"
+              reason="it's a typo!"
+              className="inline"
+            >
+              personel
+            </BugWrapper>{" "}
+            tasks and
             <br />
             goals with{" "}
             <span className="font-bangers text-2xl">Todo Wizard</span>
@@ -30,7 +38,7 @@ export default function Component() {
           <Todo className="max-w-[15rem]" title="Go to the gym" />
           <BugWrapper id="i4gn2io4g2" reason="Todo text is cut-off">
             <Todo
-              className="max-w-[15rem]"
+              className="max-w-[15rem] whitespace-nowrap"
               title="Buy groceries this weekend"
             />
           </BugWrapper>

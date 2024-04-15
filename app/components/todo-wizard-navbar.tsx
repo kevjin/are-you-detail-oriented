@@ -7,7 +7,13 @@ export function TodoWizardNavbarLoggedOut() {
   return (
     <div className="bg-white w-full py-2 flex flex-row pl-4 pr-2 items-center justify-between border-b-2 border-black">
       <Link to="/play/landing">
-        <div className="uppercase text-lg font-bangers">Todo Wizard</div>
+        <div className="uppercase text-lg font-bangers">
+          <img
+            src="/icons/todo-wizard-logo.svg"
+            className="h-4 w-4 inline-block mr-1"
+          />{" "}
+          Todo Wizard
+        </div>
       </Link>
       <div className="flex flex-row items-center gap-3">
         <Link to="/play/login">
