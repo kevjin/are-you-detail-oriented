@@ -1,5 +1,9 @@
 <img src="landing-strip-pretty.png" alt="Are You Detail Oriented?" width="100%"/>
 
+## Try it Out!
+
+Compete against 226 other players (as of April 15th): https://detailoriented.app
+
 ## Background
 
 One of the most important skills, especially for early stage companies, for founders, builders, product managers, QA testers - everyone basically, is to be detail-oriented in the work that they do.
