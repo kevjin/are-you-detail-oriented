@@ -10,8 +10,9 @@ export default function Component() {
       </div>
       <div className="mt-3 font-light text-base md:text-xl px-7 text-left max-w-[38rem]">
         How attentive to details are you? The very best founders & builders I
-        know are great at both guiding high-level vision, and are very
-        meticulous about small improvements/bugs.
+        know are not only great at guiding high-level vision, but are also very
+        meticulous about small improvements/bugs.{" "}
+        <img src="/icons/bug.svg" className="inline-block h-5 opacity-50" />
         <div className="mt-4" />
         Your goal is to catch as many software bugs in this game as possible,
         and see how you stack up against other founders, engineers, PMs, QA
