@@ -88,20 +88,22 @@ export default function Component() {
   const data = useLoaderData<typeof loader>();
   return (
     <div className="mt-10 w-full h-full flex flex-col items-center justify-start">
-      <div className="text-sm font-light">Your timer has run out.</div>
-      <div className="mt-1 text-xl font-semibold text-center">
+      <div className="text-sm md:text-base font-light">
+        Your timer has run out.
+      </div>
+      <div className="mt-1 text-xl md:text-2xl font-semibold text-center">
         Are you{" "}
         <span className="text-[#F54F01]">
           <span className="font-gochihand font-normal">detail</span> oriented?
         </span>
       </div>
-      <div className="mt-5 md:mt-14 flex flex-row w-full items-center justify-center gap-6">
+      <div className="mt-5 flex flex-row w-full items-center justify-center gap-6">
         <div className="relative">
           <div className="absolute top-2 left-2 h-[9rem] w-[9rem] md:h-[12rem] md:w-[12rem] rounded-lg bg-[#5E4425]" />
           <div className="bg-white h-[9rem] w-[9rem] md:h-[12rem] md:w-[12rem] rounded-lg flex items-center justify-center relative">
-            <div className="absolute top-2 left-3 text-xs font-semibold">
-              <img src="/icons/bug.svg" className="inline-block mb-1" /> Bugs
-              found
+            <div className="absolute top-2 left-3 text-xs md:text-sm font-semibold">
+              <img src="/icons/bug.svg" className="inline-block mb-1 md:h-5" />{" "}
+              Bugs found
             </div>
             <div className="text-[4rem] md:text-[6rem] font-bold">
               {Math.floor(data.lastSession.score / 100)}
@@ -111,7 +113,7 @@ export default function Component() {
         <div className="relative">
           <div className="absolute top-2 left-2 h-[9rem] w-[9rem] md:h-[12rem] md:w-[12rem] rounded-lg bg-[#5E4425]" />
           <div className="bg-white h-[9rem] w-[9rem] md:h-[12rem] md:w-[12rem] rounded-lg flex items-center justify-center relative">
-            <div className="absolute top-2 mt-1 left-3 text-xs font-semibold">
+            <div className="absolute top-2 mt-1 left-3 text-xs md:text-sm font-semibold">
               Your total score is
             </div>
             <div className="text-5xl md:text-[4.5rem] font-bold">
@@ -169,7 +171,7 @@ export default function Component() {
         </PrettyButton>
       </div>
 
-      <div className="mt-3 md:mt-7 w-full max-w-[35rem] px-10">
+      <div className="mt-3 md:mt-5 w-full max-w-[35rem] px-10">
         <Link to="/play/landing">
           <PrettyButton
             shadowClassName="w-full bg-[#C1C1C1] border-[#76726A] h-12"

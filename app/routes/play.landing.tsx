@@ -1,6 +1,7 @@
 import { Link } from "@remix-run/react";
 import { useState } from "react";
 import { BugWrapper } from "~/components/bug-wrapper";
+import { TestimonialList } from "~/components/testimonial";
 import { Todo } from "~/components/todo";
 import { TodoWizardNavbarLoggedOut } from "~/components/todo-wizard-navbar";
 import { Button } from "~/components/ui/button";
@@ -13,7 +14,7 @@ export default function Component() {
 
       <div className="md:mt-20 flex flex-col w-full md:flex-row items-center md:justify-between md:max-w-[60rem]">
         <div className="flex flex-col items-center md:items-start">
-          <div className="text-xl md:text-3xl md:font-normal text-center font-medium mt-7 md:text-start">
+          <div className="text-xl md:text-4xl md:font-normal text-center font-medium mt-7 md:text-start">
             Track your{" "}
             <BugWrapper
               id="3uthg3i2onfqoifngq3"
@@ -28,29 +29,35 @@ export default function Component() {
             <span className="font-bangers text-2xl">Todo Wizard</span>
           </div>
           <BugWrapper id="219rh32" reason="Button text is cut-off">
-            <Button className="mt-3 bg-black justify-start rounded-full font-medium text-white py-2 px-4 text-sm max-w-[8rem] overflow-hidden">
+            <Button className="mt-3 bg-black justify-start rounded-full font-medium text-white py-2 md:py-3 px-4 md:px-5 text-sm md:text-base max-w-[8rem] md:max-w-[10rem] overflow-hidden">
               Get Started for Free
             </Button>
           </BugWrapper>
         </div>
 
         <div className="mt-10 flex flex-col gap-1">
-          <Todo className="max-w-[15rem]" title="Go to the gym" />
+          <Todo
+            className="max-w-[15rem] md:max-w-[20rem] md:text-base"
+            title="Go to the gym"
+          />
           <BugWrapper id="i4gn2io4g2" reason="Todo text is cut-off">
             <Todo
-              className="max-w-[15rem] whitespace-nowrap"
+              className="max-w-[15rem] md:max-w-[20rem] md:text-base whitespace-nowrap"
               title="Buy groceries this weekend"
             />
           </BugWrapper>
-          <Todo className="max-w-[15rem]" title="Pay bills at end of month" />
+          <Todo
+            className="max-w-[15rem] md:max-w-[20rem] md:text-base"
+            title="Pay bills at end of month"
+          />
         </div>
       </div>
 
-      <div className="mt-16 md:mt-32 text-xs md:text-sm text-center">
+      <div className="mt-12 md:mt-32 text-xs md:text-base text-center">
         10s of people trust Todo Wizard to manage their todo lists
       </div>
 
-      <div className="flex flex-row items-start justify-center gap-10 md:gap-20">
+      <div className="md:mt-6 flex flex-row items-start justify-center gap-10 md:gap-28">
         <img className="mt-5 h-6 md:h-9 w-auto" src="/images/google.png" />
         <img className="mt-5 h-5 md:h-8 w-auto" src="/images/reddit.png" />
         <BugWrapper
@@ -64,7 +71,20 @@ export default function Component() {
         </BugWrapper>
       </div>
 
-      <div className="mt-5 w-full bg-[#E4E4E4] pb-16 px-7 flex flex-col items-center justify-start">
+      <div className="mt-7 md:mt-20 text-xl font-semibold text-[#a3a3a3]">
+        Hear from our <span className="text-black">Wall of Love</span>
+      </div>
+
+      <div className="w-full">
+        <div className="mt-4 md:mt-7 flex flex-row flex-nowrap w-[66rem] md:w-[72rem] animate-translate-x gap-6 md:gap-8">
+          <TestimonialList />
+          <TestimonialList />
+          <TestimonialList />
+          <TestimonialList />
+        </div>
+      </div>
+
+      <div className="mt-32 w-full bg-[#E4E4E4] pb-16 px-7 flex flex-col items-center justify-start">
         <div className="flex flex-col items-center md:max-w-[30rem]">
           <BugWrapper id="2oq3pgjn32nio2n" reason="Missing top margin">
             <div className="-mt-1 text-lg md:text-xl font-medium text-center">
@@ -91,7 +111,7 @@ export default function Component() {
         </div>
       </div>
 
-      <div className="mt-24 w-full px-7">
+      <div className="mt-24 w-full px-7 max-w-[60rem]">
         <div className="mb-5 text-start text-xl font-semibold">
           Frequently Asked Questions
         </div>

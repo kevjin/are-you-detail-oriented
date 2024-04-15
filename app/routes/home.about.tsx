@@ -9,12 +9,14 @@ export default function Component() {
         About
       </div>
       <div className="mt-3 font-light text-base md:text-xl px-7 text-left max-w-[38rem]">
-        How attentive to details are you? Too many times, products are launched
-        and the landing page copy/in-app experience is buggy (or has typos).
-        Your goal is to catch as many of those bugs in the game as possible, and
-        see how you stack up against other founders/engineers/PMs/QA testers!
-        <br />
-        <br />
+        How attentive to details are you? The very best founders & builders I
+        know are great at both guiding high-level vision, and are very
+        meticulous about small improvements/bugs.
+        <div className="mt-4" />
+        Your goal is to catch as many software bugs in this game as possible,
+        and see how you stack up against other founders, engineers, PMs, QA
+        testers!
+        <div className="mt-4" />
         All the code is{" "}
         <Link
           target="_blank"
