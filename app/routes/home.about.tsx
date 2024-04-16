@@ -13,11 +13,11 @@ export default function Component() {
         know are not only great at guiding high-level vision, but are also very
         meticulous about small improvements/bugs.{" "}
         <img src="/icons/bug.svg" className="inline-block h-5 opacity-50" />
-        <div className="mt-4" />
+        <div className="mt-2 md:mt-4" />
         Your goal is to catch as many software bugs in this game as possible,
         and see how you stack up against other founders, engineers, PMs, QA
         testers!
-        <div className="mt-4" />
+        <div className="mt-2 md:mt-4" />
         All the code is{" "}
         <Link
           target="_blank"
@@ -30,7 +30,7 @@ export default function Component() {
         for building your own side project.
       </div>
 
-      <div className="mt-14 md:mt-32 font-light text-base md:text-xl px-7 text-left max-w-[38rem]">
+      <div className="mt-9 xl:mt-24 font-light text-base md:text-xl px-7 text-left max-w-[38rem]">
         This was a fun, small weekend project of mine. Come follow my socials to
         see what else I’m building!
       </div>
@@ -48,7 +48,7 @@ export default function Component() {
               buttonClassName="w-10 h-10 p-0 bg-[#F7EDCA]"
               shadowClassName="w-10 h-10 p-0"
             >
-              <img src="/icons/twitter.png" className="h-4 w-5" />
+              <img src="/icons/twitter.png" className="h-4 w-auto" />
             </PrettyButton>
           </Link>
           <Link target="_blank" to="https://www.linkedin.com/in/itskevinjin/">
@@ -56,7 +56,7 @@ export default function Component() {
               buttonClassName="w-10 h-10 p-0 bg-[#F7EDCA]"
               shadowClassName="w-10 h-10 p-0"
             >
-              <img src="/icons/linkedin.png" className="h-4 w-5" />
+              <img src="/icons/linkedin.png" className="h-5 w-auto" />
             </PrettyButton>
           </Link>
         </div>

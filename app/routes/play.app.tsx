@@ -8,7 +8,10 @@ import { Input } from "~/components/ui/input";
 export default function Component() {
   const [todos, setTodos] = useState([
     { title: "Welcome, this is your todo list!", completed: false },
-    { title: "You can complete todos by clicking the check", completed: false },
+    {
+      title: "You can complete todos by tapping the checkmark",
+      completed: false,
+    },
     { title: "You can add a new todo by clicking 'Create'", completed: true },
   ]);
   const [newTodoText, setNewTodoText] = useState("");
@@ -16,7 +19,7 @@ export default function Component() {
   return (
     <div className="w-full h-full bg-[#E6E6E6] flex flex-col items-center justify-start">
       <TodoWizardNavbarLoggedIn />
-      <div className="flex flex-col items-center justify-start w-full max-w-[50rem]">
+      <div className="pb-10 flex flex-col items-center justify-start w-full max-w-[50rem] overflow-y-auto">
         <div className="flex flex-row items-center justify-between w-full mt-10 px-5">
           <div className="text-xl font-bold">My Todo List</div>
           <BugWrapper id="54iohn34iog34" reason="The '3' is a hardcoded value">
@@ -27,7 +30,7 @@ export default function Component() {
           Write down your daily todos. Check them off when they get done. Get
           disciplined.
         </div>
-        <div className="mt-10 px-5 w-full">
+        <div className="mt-5 md:mt-10 px-5 w-full">
           {todos.map((todo, i) => (
             <Todo
               key={i}

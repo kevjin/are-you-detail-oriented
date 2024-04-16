@@ -87,7 +87,7 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
 export default function Component() {
   const data = useLoaderData<typeof loader>();
   return (
-    <div className="mt-10 w-full h-full flex flex-col items-center justify-start">
+    <div className="mt-10 w-full h-full flex flex-col items-center justify-start overflow-y-auto">
       <div className="text-sm md:text-base font-light">
         Your timer has run out.
       </div>
@@ -123,11 +123,11 @@ export default function Component() {
         </div>
       </div>
 
-      <div className="mt-8 md:mt-12 bg-[#FFE3AD] py-4 md:py-7 w-full flex items-center justify-center flex-col">
+      <div className="mt-8 2xl:mt-12 bg-[#FFE3AD] py-4 md:py-7 w-full flex items-center justify-center flex-col">
         <div className="text-sm md:text-base font-light">
           Your leaderboard rank is
         </div>
-        <div className="mt-1 text-5xl md:text-[4.5rem] font-semibold">
+        <div className="mt-1 text-5xl 2xl:text-[4.5rem] font-semibold">
           {data.myRanking}
           <img
             src="/icons/rankings.svg"
@@ -140,7 +140,7 @@ export default function Component() {
         </div>
       </div>
 
-      <div className="mt-5 md:mt-10 flex flex-row justify-between md:justify-center md:gap-14 items-center w-full px-10">
+      <div className="mt-5 2xl:mt-10 flex flex-row justify-between md:justify-center md:gap-14 items-center w-full px-10">
         <div className="font-bold text-sm">
           {data.lastSession.name}{" "}
           {/* <img src="/icons/edit.svg" className="inline-block h-4 w-4" /> */}

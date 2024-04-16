@@ -36,18 +36,15 @@ export default function Component() {
         </div>
 
         <div className="mt-10 flex flex-col gap-1">
-          <Todo
-            className="max-w-[15rem] md:max-w-[20rem] md:text-base"
-            title="Go to the gym"
-          />
+          <Todo className="max-w-[15rem] md:text-base" title="Go to the gym" />
           <BugWrapper id="i4gn2io4g2" reason="Todo text is cut-off">
             <Todo
-              className="max-w-[15rem] md:max-w-[20rem] md:text-base whitespace-nowrap"
+              className="max-w-[15rem] md:text-base whitespace-nowrap"
               title="Buy groceries this weekend"
             />
           </BugWrapper>
           <Todo
-            className="max-w-[15rem] md:max-w-[20rem] md:text-base"
+            className="max-w-[15rem] md:text-base"
             title="Pay bills at end of month"
           />
         </div>
@@ -163,7 +160,12 @@ export default function Component() {
 
       <div className="mt-28 mb-[6rem] px-7 flex flex-row justify-between w-full text-sm">
         <div>
-          <div className="font-bold">Task Wizard</div>
+          <BugWrapper
+            id="23uiht23iogn3io"
+            reason="TODO Wizard not 'Task' Wizard"
+          >
+            <div className="font-bold">Task Wizard</div>
+          </BugWrapper>
           <BugWrapper
             id="43iotn34g"
             reason="The copyright is not the correct year"
