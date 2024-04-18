@@ -38,8 +38,9 @@ export const action = async (args: ActionFunctionArgs) => {
 
   const score = parseInt(scoreRaw as string);
 
-  if (score > 10000) {
-    return json({ error: "Come on, man" }, { status: 400 });
+  // Updating this for you, Speck (YC W24)
+  if (score > 2000) {
+    return json({ error: "Come on, man" }, { status: 200 });
   }
 
   const newPlaySession = await prisma.playSession.create({
